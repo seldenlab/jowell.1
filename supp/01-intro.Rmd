@@ -1,13 +1,4 @@
----
-title: "Geometric morphometric analysis of Jowell Knives"
-author: "Robert Z. Selden, Jr."
-date: "September 22, 2020"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Analysis 
 
 ## Load packages + data
 
