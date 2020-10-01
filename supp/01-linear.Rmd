@@ -7,6 +7,7 @@
 #devtools::install_github("mlcollyer/RRPP")
 #devtools::install_github("kassambara/ggpubr")
 #devtools::install_github("sinhrks/ggfortify")
+#devtools::install_git('https://bitbucket.org/nicholasehamilton/ggtern')
 #devtools::install_github("karthik/wesanderson")
 #devtools::install_github("daattali/ggExtra")
 # load libraries
@@ -14,6 +15,7 @@ library(tidyverse)
 library(RRPP)
 library(ggpubr)
 library(ggfortify)
+library(ggtern)
 library(cluster)
 library(wesanderson)
 library(ggExtra)
@@ -73,14 +75,26 @@ sitefigure<-ggarrange(sitemaxl,sitemaxw,sitemaxth,
 sitefigure
 ```
 
-## Principal Components Analysis for _site_
-
-```{r pcasite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal Components Analysis by site."}
+```{r ternary.plots, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 #attributes for plot
-df<-data[c(3:5)]
+df <- data[c(3:5)]
 pch.gps.gp <- c(15,19)[as.factor(site)]
 col.gps.gp <- wes_palette("Moonrise2")[as.factor(site)]
 
+# load data
+tern <-  ggtern(data = data, aes(maxl, maxw, maxth)) +
+  geom_point(shape = pch.gps.gp, col = col.gps.gp) +  
+  scale_T_continuous(limits = c(0, 0.2)) +
+  scale_L_continuous(limits = c(0.8, 1)) +
+  scale_R_continuous(limits = c(0, 0.2))
+
+# render plot
+tern
+```
+
+## Principal Components Analysis for _site_
+
+```{r pcasite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal Components Analysis by site."}
 #pca
 pca <- autoplot(prcomp(df),
          data = data,
