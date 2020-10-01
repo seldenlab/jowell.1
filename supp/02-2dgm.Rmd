@@ -75,7 +75,7 @@ plot_PCA(pca.outlines, morphospace_position = "range",
 boxplot(pca.outlines, ~site, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
-PCcontrib(pca.outlines, nax = 1:10)
+PCcontrib(pca.outlines, nax = 1:5)
 ```
 
 ## MANOVA

@@ -7,6 +7,7 @@
 #devtools::install_github("mlcollyer/RRPP")
 #devtools::install_github("kassambara/ggpubr")
 #devtools::install_github("sinhrks/ggfortify")
+#devtools::install_github("karthik/wesanderson")
 #devtools::install_github("daattali/ggExtra")
 # load libraries
 library(tidyverse)
