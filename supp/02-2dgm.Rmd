@@ -1,4 +1,4 @@
-# Analysis 
+# Geometric morphometrics 
 
 ## Load packages + data
 

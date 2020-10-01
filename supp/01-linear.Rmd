@@ -1,0 +1,157 @@
+# Linear metrics by site
+
+
+```{r load packages 3, echo=TRUE}
+# install required analysis packages
+#devtools::install_github("tidyverse/tidyverse")
+#devtools::install_github("mlcollyer/RRPP")
+#devtools::install_github("kassambara/ggpubr")
+#devtools::install_github("sinhrks/ggfortify")
+#devtools::install_github("daattali/ggExtra")
+# load libraries
+library(tidyverse)
+library(RRPP)
+library(ggpubr)
+library(ggfortify)
+library(cluster)
+library(wesanderson)
+library(ggExtra)
+```
+
+## Set working directory, load data, and define variables
+
+```{r setwd ld define variables 3, echo=TRUE}
+# set working directory
+setwd(getwd())
+data <- read.csv("linear.csv", header = TRUE, as.is=TRUE)
+# define variables
+maxl <- data$length # maximum length
+maxw <- data$width# maximum width
+maxth <- data$thickness # maximum thickness
+site <- data$site # site name
+```
+
+## Boxplots for _variable_ by _site_
+
+```{r boxsite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplots for maximum length, width, and thickness for Jowell knives from 41AN13 and 41HS261."}
+# boxplot of maximum length ~ site
+sitemaxl <- ggplot(data, aes(x = site, y = maxl, color = site)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Site', y = 'MaxL')
+
+# boxplot of maximum width ~ site
+sitemaxw <- ggplot(data, aes(x = site, y = maxw, color = site)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Site', y = 'MaxW')
+
+# boxplot of maximum thickness ~ site
+sitemaxth <- ggplot(data, aes(x = site, y = maxth, color = site)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Site', y = 'MaxTh')
+
+# render figure
+sitefigure<-ggarrange(sitemaxl,sitemaxw,sitemaxth,
+                  labels = c("a","b","c"),
+                  ncol = 2, nrow = 2)
+              
+# plot figure
+sitefigure
+```
+
+## Principal Components Analysis for _site_
+
+```{r pcasite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal Components Analysis by site."}
+#attributes for plot
+df<-data[c(3:5)]
+pch.gps.gp <- c(15,19)[as.factor(site)]
+col.gps.gp <- wes_palette("Moonrise2")[as.factor(site)]
+
+#pca
+pca <- autoplot(prcomp(df),
+         data = data,
+         asp = 1,
+         shape = pch.gps.gp,
+         colour = 'site',
+         loadings = TRUE, 
+         loadings.colour = 'blue',
+         loadings.label = TRUE,
+         loadings.label.size = 3, 
+         frame = TRUE) +
+    scale_fill_manual(values = wes_palette("Moonrise2")) +
+    scale_colour_manual(values = wes_palette("Moonrise2"))
+
+ggMarginal(pca, groupColour = TRUE, groupFill = TRUE)
+```
+
+## Density plots for _variable_ ~ _group_
+
+```{r anova.dens.maxl, out.width = "100%", dpi = 300, echo=TRUE}
+# density plot for maxl by site
+ggplot(data, aes(x = maxl, fill = site, colour = site)) +
+  geom_density(alpha = .5) +
+  scale_fill_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  xlim(0,150) +
+  labs(x = 'Max Length', y = 'density')
+```
+
+```{r anova.dens.maxw, out.width = "100%", dpi = 300, echo=TRUE}
+# density plot for maxw by site
+ggplot(data, aes(x = maxw, fill = site, colour = site)) +
+  geom_density(alpha = .4) +
+  scale_fill_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  xlim(0,75) +
+  labs(x = 'Max Width', y = 'density')
+```
+
+```{r anova.dens.maxth, out.width = "100%", dpi = 300, echo=TRUE}
+# density plot for maxth by site
+ggplot(data, aes(x = maxth, fill = site, colour = site)) +
+  geom_density(alpha = .4) +
+  scale_fill_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  xlim(0,25) +
+  labs(x = 'Max Thickness', y = 'density')
+```
+
+## Analyses of Variance (ANOVA) for _variable_ ~ _site_
+
+### _Maximum length_ of Jowell knives
+
+```{r anovasitemaxl, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum length ~ site
+siteml <- lm.rrpp(maxl ~ site, SS.type = "I", 
+                  data = data, iter = 9999, 
+                  print.progress = FALSE)
+anova(siteml)
+```
+
+### _Maximum width_ of Jowell knives
+
+```{r anovasitemaxw, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum width ~ site
+sitemw <- lm.rrpp(maxw ~ site, SS.type = "I", 
+                  data = data, iter = 9999, 
+                  print.progress = FALSE)
+anova(sitemw)
+```
+
+### _Maximum thickness_ of Jowell knives
+
+```{r anovasitemaxth, out.width = "100%", dpi = 300, echo=TRUE}
+# anova = maximum thickness ~ site
+sitemth <- lm.rrpp(maxth ~ site, SS.type = "I", 
+                   data = data, iter = 9999, 
+                   print.progress = FALSE)
+anova(sitemth)
+```
