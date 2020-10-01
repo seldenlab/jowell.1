@@ -30,6 +30,11 @@ maxl <- data$length # maximum length
 maxw <- data$width# maximum width
 maxth <- data$thickness # maximum thickness
 site <- data$site # site name
+
+# print data
+knitr::kable(data, 
+             align = "ccccc", 
+             caption = "Attributes included in linear data (all measurements in mm).")
 ```
 
 ## Boxplots for _variable_ by _site_
