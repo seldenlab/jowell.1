@@ -26,7 +26,7 @@ knitr::include_graphics('../images/jowell.png')
 
 * Jowell knives recovered from 41AN13 are both significantly thinner (Chapter 1) and broader (Chapter 2) than those recovered from 41HS261.
 
-* Results provide a solid foundation for potential discussions of differential skill in Jowell knife manufacture and maintenance.
+* Results provide the requisite foundation needed to advance discussions of differential skill in Jowell knife production and maintenance.
 
 ## Data management
 
