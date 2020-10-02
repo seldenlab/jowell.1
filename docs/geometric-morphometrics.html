@@ -184,23 +184,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Geometric morphometrics</h1>
 <div id="load-packages-data" class="section level2">
 <h2><span class="header-section-number">2.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="geometric-morphometrics.html#cb18-1"></a><span class="co"># load packages</span></span>
-<span id="cb18-2"><a href="geometric-morphometrics.html#cb18-2"></a><span class="kw">library</span>(here)</span>
-<span id="cb18-3"><a href="geometric-morphometrics.html#cb18-3"></a><span class="kw">library</span>(wesanderson)</span>
-<span id="cb18-4"><a href="geometric-morphometrics.html#cb18-4"></a><span class="kw">library</span>(Momocs)</span>
-<span id="cb18-5"><a href="geometric-morphometrics.html#cb18-5"></a></span>
-<span id="cb18-6"><a href="geometric-morphometrics.html#cb18-6"></a><span class="co"># read images + attribute data</span></span>
-<span id="cb18-7"><a href="geometric-morphometrics.html#cb18-7"></a>jpg.list &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="kw">here</span>(<span class="st">&quot;/jpegs&quot;</span>), <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb18-8"><a href="geometric-morphometrics.html#cb18-8"></a>att.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;att.data.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb18-9"><a href="geometric-morphometrics.html#cb18-9"></a></span>
-<span id="cb18-10"><a href="geometric-morphometrics.html#cb18-10"></a><span class="co"># attributes to factors</span></span>
-<span id="cb18-11"><a href="geometric-morphometrics.html#cb18-11"></a>att.data<span class="op">$</span>site &lt;-<span class="st"> </span><span class="kw">as.factor</span>(att.data<span class="op">$</span>site)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="geometric-morphometrics.html#cb19-1"></a><span class="co"># load packages</span></span>
+<span id="cb19-2"><a href="geometric-morphometrics.html#cb19-2"></a><span class="kw">library</span>(here)</span>
+<span id="cb19-3"><a href="geometric-morphometrics.html#cb19-3"></a><span class="kw">library</span>(wesanderson)</span>
+<span id="cb19-4"><a href="geometric-morphometrics.html#cb19-4"></a><span class="kw">library</span>(Momocs)</span>
+<span id="cb19-5"><a href="geometric-morphometrics.html#cb19-5"></a></span>
+<span id="cb19-6"><a href="geometric-morphometrics.html#cb19-6"></a><span class="co"># read images + attribute data</span></span>
+<span id="cb19-7"><a href="geometric-morphometrics.html#cb19-7"></a>jpg.list &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="kw">here</span>(<span class="st">&quot;/jpegs&quot;</span>), <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb19-8"><a href="geometric-morphometrics.html#cb19-8"></a>att.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;att.data.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb19-9"><a href="geometric-morphometrics.html#cb19-9"></a></span>
+<span id="cb19-10"><a href="geometric-morphometrics.html#cb19-10"></a><span class="co"># attributes to factors</span></span>
+<span id="cb19-11"><a href="geometric-morphometrics.html#cb19-11"></a>att.data<span class="op">$</span>site &lt;-<span class="st"> </span><span class="kw">as.factor</span>(att.data<span class="op">$</span>site)</span></code></pre></div>
 </div>
 <div id="generate-outlines" class="section level2">
 <h2><span class="header-section-number">2.2</span> Generate outlines</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="geometric-morphometrics.html#cb19-1"></a><span class="co"># generate outlines</span></span>
-<span id="cb19-2"><a href="geometric-morphometrics.html#cb19-2"></a>outlines &lt;-<span class="st"> </span>jpg.list <span class="op">%&gt;%</span></span>
-<span id="cb19-3"><a href="geometric-morphometrics.html#cb19-3"></a><span class="st">  </span><span class="kw">import_jpg</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="geometric-morphometrics.html#cb20-1"></a><span class="co"># generate outlines</span></span>
+<span id="cb20-2"><a href="geometric-morphometrics.html#cb20-2"></a>outlines &lt;-<span class="st"> </span>jpg.list <span class="op">%&gt;%</span></span>
+<span id="cb20-3"><a href="geometric-morphometrics.html#cb20-3"></a><span class="st">  </span><span class="kw">import_jpg</span>()</span></code></pre></div>
 <pre><code>## Extracting 40.jpg outlines...</code></pre>
 <pre><code>## [ 1 / 40 ]  1564.jpg
 ## [ 2 / 40 ]  56.jpg
@@ -242,31 +242,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ 38 / 40 ]  hs26.jpg
 ## [ 39 / 40 ]  hs27.jpg
 ## [ 40 / 40 ]  hs28.jpg</code></pre>
-<pre><code>## Done in 7 mins</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="geometric-morphometrics.html#cb23-1"></a><span class="co"># add attributes</span></span>
-<span id="cb23-2"><a href="geometric-morphometrics.html#cb23-2"></a>data.out &lt;-<span class="st"> </span><span class="kw">Out</span>(outlines, </span>
-<span id="cb23-3"><a href="geometric-morphometrics.html#cb23-3"></a>         <span class="dt">fac =</span> att.data)</span>
-<span id="cb23-4"><a href="geometric-morphometrics.html#cb23-4"></a></span>
-<span id="cb23-5"><a href="geometric-morphometrics.html#cb23-5"></a><span class="co"># center, scale, align, and rotate specimens</span></span>
-<span id="cb23-6"><a href="geometric-morphometrics.html#cb23-6"></a>norm.outlines &lt;-<span class="st"> </span>data.out <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb23-7"><a href="geometric-morphometrics.html#cb23-7"></a><span class="st">  </span>coo_center <span class="op">%&gt;%</span></span>
-<span id="cb23-8"><a href="geometric-morphometrics.html#cb23-8"></a><span class="st">  </span><span class="kw">coo_scale</span>() <span class="op">%&gt;%</span></span>
-<span id="cb23-9"><a href="geometric-morphometrics.html#cb23-9"></a><span class="st">  </span><span class="kw">coo_align</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb23-10"><a href="geometric-morphometrics.html#cb23-10"></a><span class="st">  </span><span class="kw">coo_rotate</span>()  </span></code></pre></div>
+<pre><code>## Done in 4.9 mins</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="geometric-morphometrics.html#cb24-1"></a><span class="co"># add attributes</span></span>
+<span id="cb24-2"><a href="geometric-morphometrics.html#cb24-2"></a>data.out &lt;-<span class="st"> </span><span class="kw">Out</span>(outlines, </span>
+<span id="cb24-3"><a href="geometric-morphometrics.html#cb24-3"></a>         <span class="dt">fac =</span> att.data)</span>
+<span id="cb24-4"><a href="geometric-morphometrics.html#cb24-4"></a></span>
+<span id="cb24-5"><a href="geometric-morphometrics.html#cb24-5"></a><span class="co"># center, scale, align, and rotate specimens</span></span>
+<span id="cb24-6"><a href="geometric-morphometrics.html#cb24-6"></a>norm.outlines &lt;-<span class="st"> </span>data.out <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb24-7"><a href="geometric-morphometrics.html#cb24-7"></a><span class="st">  </span>coo_center <span class="op">%&gt;%</span></span>
+<span id="cb24-8"><a href="geometric-morphometrics.html#cb24-8"></a><span class="st">  </span><span class="kw">coo_scale</span>() <span class="op">%&gt;%</span></span>
+<span id="cb24-9"><a href="geometric-morphometrics.html#cb24-9"></a><span class="st">  </span><span class="kw">coo_align</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb24-10"><a href="geometric-morphometrics.html#cb24-10"></a><span class="st">  </span><span class="kw">coo_rotate</span>()  </span></code></pre></div>
 </div>
 <div id="pile-and-mosaics" class="section level2">
 <h2><span class="header-section-number">2.3</span> Pile and mosaics</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="geometric-morphometrics.html#cb24-1"></a><span class="co"># outline pile</span></span>
-<span id="cb24-2"><a href="geometric-morphometrics.html#cb24-2"></a><span class="kw">pile</span>(norm.outlines)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="geometric-morphometrics.html#cb25-1"></a><span class="co"># outline pile</span></span>
+<span id="cb25-2"><a href="geometric-morphometrics.html#cb25-2"></a><span class="kw">pile</span>(norm.outlines)</span></code></pre></div>
 <p><img src="supp_files/figure-html/stack.panel-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="geometric-morphometrics.html#cb25-1"></a><span class="co"># mosaic of individual specimens from the different sites</span></span>
-<span id="cb25-2"><a href="geometric-morphometrics.html#cb25-2"></a><span class="kw">mosaic</span>(norm.outlines, <span class="op">~</span>site)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="geometric-morphometrics.html#cb26-1"></a><span class="co"># mosaic of individual specimens from the different sites</span></span>
+<span id="cb26-2"><a href="geometric-morphometrics.html#cb26-2"></a><span class="kw">mosaic</span>(norm.outlines, <span class="op">~</span>site)</span></code></pre></div>
 <p><img src="supp_files/figure-html/stack.panel-2.png" width="100%" /></p>
 </div>
 <div id="calibrate-harmonic-efa" class="section level2">
 <h2><span class="header-section-number">2.4</span> Calibrate harmonic + EFA</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="geometric-morphometrics.html#cb26-1"></a><span class="co"># calibrate how many harmonics needed</span></span>
-<span id="cb26-2"><a href="geometric-morphometrics.html#cb26-2"></a><span class="kw">calibrate_harmonicpower_efourier</span>(norm.outlines, <span class="dt">nb.h =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="geometric-morphometrics.html#cb27-1"></a><span class="co"># calibrate how many harmonics needed</span></span>
+<span id="cb27-2"><a href="geometric-morphometrics.html#cb27-2"></a><span class="kw">calibrate_harmonicpower_efourier</span>(norm.outlines, <span class="dt">nb.h =</span> <span class="dv">30</span>)</span></code></pre></div>
 <pre><code>## $gg</code></pre>
 <p><img src="supp_files/figure-html/cal.harm-1.png" width="100%" /></p>
 <pre><code>## 
@@ -416,36 +416,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $minh
 ##   90%   95%   99% 99.9% 
 ##     5     5     9    19</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="geometric-morphometrics.html#cb29-1"></a><span class="co"># 9 harmonics needed to capture 99 percent of variation</span></span>
-<span id="cb29-2"><a href="geometric-morphometrics.html#cb29-2"></a><span class="kw">calibrate_reconstructions_efourier</span>(norm.outlines, <span class="dt">range =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="geometric-morphometrics.html#cb30-1"></a><span class="co"># 9 harmonics needed to capture 99 percent of variation</span></span>
+<span id="cb30-2"><a href="geometric-morphometrics.html#cb30-2"></a><span class="kw">calibrate_reconstructions_efourier</span>(norm.outlines, <span class="dt">range =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)</span></code></pre></div>
 <p><img src="supp_files/figure-html/cal.harm-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="geometric-morphometrics.html#cb30-1"></a><span class="co"># generate efa outlines with 9 harmonics</span></span>
-<span id="cb30-2"><a href="geometric-morphometrics.html#cb30-2"></a>efa.outlines &lt;-<span class="st"> </span><span class="kw">efourier</span>(norm.outlines, <span class="dt">nb.h =</span> <span class="dv">9</span>, <span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb30-3"><a href="geometric-morphometrics.html#cb30-3"></a></span>
-<span id="cb30-4"><a href="geometric-morphometrics.html#cb30-4"></a><span class="co"># use efa.outlines for pca</span></span>
-<span id="cb30-5"><a href="geometric-morphometrics.html#cb30-5"></a>pca.outlines &lt;-<span class="st"> </span><span class="kw">PCA</span>(efa.outlines)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="geometric-morphometrics.html#cb31-1"></a><span class="co"># generate efa outlines with 9 harmonics</span></span>
+<span id="cb31-2"><a href="geometric-morphometrics.html#cb31-2"></a>efa.outlines &lt;-<span class="st"> </span><span class="kw">efourier</span>(norm.outlines, <span class="dt">nb.h =</span> <span class="dv">9</span>, <span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb31-3"><a href="geometric-morphometrics.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="geometric-morphometrics.html#cb31-4"></a><span class="co"># use efa.outlines for pca</span></span>
+<span id="cb31-5"><a href="geometric-morphometrics.html#cb31-5"></a>pca.outlines &lt;-<span class="st"> </span><span class="kw">PCA</span>(efa.outlines)</span></code></pre></div>
 </div>
 <div id="pca" class="section level2">
 <h2><span class="header-section-number">2.5</span> PCA</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="geometric-morphometrics.html#cb31-1"></a><span class="co"># pca </span></span>
-<span id="cb31-2"><a href="geometric-morphometrics.html#cb31-2"></a><span class="kw">scree_plot</span>(pca.outlines)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="geometric-morphometrics.html#cb32-1"></a><span class="co"># pca </span></span>
+<span id="cb32-2"><a href="geometric-morphometrics.html#cb32-2"></a><span class="kw">scree_plot</span>(pca.outlines)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plot-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="geometric-morphometrics.html#cb32-1"></a><span class="co"># plot pca by site</span></span>
-<span id="cb32-2"><a href="geometric-morphometrics.html#cb32-2"></a><span class="kw">plot_PCA</span>(pca.outlines, <span class="dt">morphospace_position =</span> <span class="st">&quot;range&quot;</span>,</span>
-<span id="cb32-3"><a href="geometric-morphometrics.html#cb32-3"></a>         <span class="op">~</span>site, <span class="dt">zoom =</span> <span class="fl">1.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="geometric-morphometrics.html#cb33-1"></a><span class="co"># plot pca by site</span></span>
+<span id="cb33-2"><a href="geometric-morphometrics.html#cb33-2"></a><span class="kw">plot_PCA</span>(pca.outlines, <span class="dt">morphospace_position =</span> <span class="st">&quot;range&quot;</span>,</span>
+<span id="cb33-3"><a href="geometric-morphometrics.html#cb33-3"></a>         <span class="op">~</span>site, <span class="dt">zoom =</span> <span class="fl">1.25</span>)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plot-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="geometric-morphometrics.html#cb33-1"></a><span class="co"># contribution of each pc</span></span>
-<span id="cb33-2"><a href="geometric-morphometrics.html#cb33-2"></a><span class="kw">boxplot</span>(pca.outlines, <span class="op">~</span>site, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="geometric-morphometrics.html#cb34-1"></a><span class="co"># contribution of each pc</span></span>
+<span id="cb34-2"><a href="geometric-morphometrics.html#cb34-2"></a><span class="kw">boxplot</span>(pca.outlines, <span class="op">~</span>site, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plot-3.png" width="100%" /></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="geometric-morphometrics.html#cb34-1"></a><span class="co"># mean shape + 2sd for the first 10 pcs</span></span>
-<span id="cb34-2"><a href="geometric-morphometrics.html#cb34-2"></a><span class="kw">PCcontrib</span>(pca.outlines, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="geometric-morphometrics.html#cb35-1"></a><span class="co"># mean shape + 2sd for the first 10 pcs</span></span>
+<span id="cb35-2"><a href="geometric-morphometrics.html#cb35-2"></a><span class="kw">PCcontrib</span>(pca.outlines, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plot-4.png" width="100%" /></p>
 </div>
 <div id="manova" class="section level2">
 <h2><span class="header-section-number">2.6</span> MANOVA</h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="geometric-morphometrics.html#cb35-1"></a><span class="co"># manova</span></span>
-<span id="cb35-2"><a href="geometric-morphometrics.html#cb35-2"></a><span class="co"># does shape differ between sites?</span></span>
-<span id="cb35-3"><a href="geometric-morphometrics.html#cb35-3"></a><span class="kw">MANOVA</span>(pca.outlines, <span class="st">&#39;site&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="geometric-morphometrics.html#cb36-1"></a><span class="co"># manova</span></span>
+<span id="cb36-2"><a href="geometric-morphometrics.html#cb36-2"></a><span class="co"># does shape differ between sites?</span></span>
+<span id="cb36-3"><a href="geometric-morphometrics.html#cb36-3"></a><span class="kw">MANOVA</span>(pca.outlines, <span class="st">&#39;site&#39;</span>)</span></code></pre></div>
 <pre><code>## PC axes 1 to 16 were retained</code></pre>
 <pre><code>##           Df Hotelling-Lawley approx F num Df den Df    Pr(&gt;F)    
 ## fac        1           3.3167   4.7677     16     23 0.0003766 ***
@@ -455,9 +455,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="mean-shapes" class="section level2">
 <h2><span class="header-section-number">2.7</span> Mean shapes</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="geometric-morphometrics.html#cb38-1"></a><span class="co"># mean shapes</span></span>
-<span id="cb38-2"><a href="geometric-morphometrics.html#cb38-2"></a>ms<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">MSHAPES</span>(efa.outlines, <span class="op">~</span>site)</span>
-<span id="cb38-3"><a href="geometric-morphometrics.html#cb38-3"></a><span class="kw">plot_MSHAPES</span>(ms<span class="fl">.1</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="geometric-morphometrics.html#cb39-1"></a><span class="co"># mean shapes</span></span>
+<span id="cb39-2"><a href="geometric-morphometrics.html#cb39-2"></a>ms<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">MSHAPES</span>(efa.outlines, <span class="op">~</span>site)</span>
+<span id="cb39-3"><a href="geometric-morphometrics.html#cb39-3"></a><span class="kw">plot_MSHAPES</span>(ms<span class="fl">.1</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ms1"></span>
 <img src="supp_files/figure-html/ms1-1.png" alt="Pairwise comparison of mean shapes for Jowell knives by site." width="100%" />
 <p class="caption">
