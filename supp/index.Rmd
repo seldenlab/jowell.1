@@ -16,11 +16,15 @@ description: "Pilot study of Jowell knife morphology."
 
 This volume is written in **Markdown**, and includes all analysis code employed in the study, providing a means for others to reproduce (exactly) those results discussed and expounded upon in the following chapters. The replicable nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components of this study [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge. Typology is the topic of this particular undertaking, and typological assignments provide the requisite foundation for many of the assumptions, inferences, and interpretations that archaeologists regularly make. Diagnostic types---whether functional, decorative, morphological, or chronological [@RN20847]---are of considerable import in formulating archaeological interpretations.
 
+```{r fig.jowellmorph, fig.cap="Illustration of Jowell knife 05A from 41HS261."}
+knitr::include_graphics('../images/jowell.png')
+```
+
 ## Primary findings
 
 * Maximum thickness of Jowell knives differs significantly between the two sites.
 
-* Jowell knives from 41AN13 are both significantly thinner (Chapter 1) and broader (Chapter 2).
+* Jowell knives recovered from 41AN13 are both significantly thinner (Chapter 1) and broader (Chapter 2) than those recovered from 41HS261.
 
 * Results provide a solid foundation for potential discussions of differential skill in Jowell knife manufacture and maintenance.
 
