@@ -75,6 +75,8 @@ sitefigure<-ggarrange(sitemaxl,sitemaxw,sitemaxth,
 sitefigure
 ```
 
+## Ternary plot
+
 ```{r ternary.plots, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 #attributes for plot
 df <- data[c(3:5)]

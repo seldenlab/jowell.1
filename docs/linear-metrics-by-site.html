@@ -141,12 +141,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html"><i class="fa fa-check"></i><b>1</b> Linear metrics by site</a><ul>
 <li class="chapter" data-level="1.1" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#set-working-directory-load-data-and-define-variables"><i class="fa fa-check"></i><b>1.1</b> Set working directory, load data, and define variables</a></li>
 <li class="chapter" data-level="1.2" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#boxplots-for-variable-by-site"><i class="fa fa-check"></i><b>1.2</b> Boxplots for <em>variable</em> by <em>site</em></a></li>
-<li class="chapter" data-level="1.3" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#principal-components-analysis-for-site"><i class="fa fa-check"></i><b>1.3</b> Principal Components Analysis for <em>site</em></a></li>
-<li class="chapter" data-level="1.4" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#density-plots-for-variable-group"><i class="fa fa-check"></i><b>1.4</b> Density plots for <em>variable</em> ~ <em>group</em></a></li>
-<li class="chapter" data-level="1.5" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#analyses-of-variance-anova-for-variable-site"><i class="fa fa-check"></i><b>1.5</b> Analyses of Variance (ANOVA) for <em>variable</em> ~ <em>site</em></a><ul>
-<li class="chapter" data-level="1.5.1" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-length-of-jowell-knives"><i class="fa fa-check"></i><b>1.5.1</b> <em>Maximum length</em> of Jowell knives</a></li>
-<li class="chapter" data-level="1.5.2" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-width-of-jowell-knives"><i class="fa fa-check"></i><b>1.5.2</b> <em>Maximum width</em> of Jowell knives</a></li>
-<li class="chapter" data-level="1.5.3" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-thickness-of-jowell-knives"><i class="fa fa-check"></i><b>1.5.3</b> <em>Maximum thickness</em> of Jowell knives</a></li>
+<li class="chapter" data-level="1.3" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#ternary-plot"><i class="fa fa-check"></i><b>1.3</b> Ternary plot</a></li>
+<li class="chapter" data-level="1.4" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#principal-components-analysis-for-site"><i class="fa fa-check"></i><b>1.4</b> Principal Components Analysis for <em>site</em></a></li>
+<li class="chapter" data-level="1.5" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#density-plots-for-variable-group"><i class="fa fa-check"></i><b>1.5</b> Density plots for <em>variable</em> ~ <em>group</em></a></li>
+<li class="chapter" data-level="1.6" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#analyses-of-variance-anova-for-variable-site"><i class="fa fa-check"></i><b>1.6</b> Analyses of Variance (ANOVA) for <em>variable</em> ~ <em>site</em></a><ul>
+<li class="chapter" data-level="1.6.1" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-length-of-jowell-knives"><i class="fa fa-check"></i><b>1.6.1</b> <em>Maximum length</em> of Jowell knives</a></li>
+<li class="chapter" data-level="1.6.2" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-width-of-jowell-knives"><i class="fa fa-check"></i><b>1.6.2</b> <em>Maximum width</em> of Jowell knives</a></li>
+<li class="chapter" data-level="1.6.3" data-path="linear-metrics-by-site.html"><a href="linear-metrics-by-site.html#maximum-thickness-of-jowell-knives"><i class="fa fa-check"></i><b>1.6.3</b> <em>Maximum thickness</em> of Jowell knives</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html"><i class="fa fa-check"></i><b>2</b> Geometric morphometrics</a><ul>
@@ -542,6 +543,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 1.1: Boxplots for maximum length, width, and thickness for Jowell knives from 41AN13 and 41HS261.
 </p>
 </div>
+</div>
+<div id="ternary-plot" class="section level2">
+<h2><span class="header-section-number">1.3</span> Ternary plot</h2>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="linear-metrics-by-site.html#cb7-1"></a><span class="co">#attributes for plot</span></span>
 <span id="cb7-2"><a href="linear-metrics-by-site.html#cb7-2"></a>df &lt;-<span class="st"> </span>data[<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>)]</span>
 <span id="cb7-3"><a href="linear-metrics-by-site.html#cb7-3"></a>pch.gps.gp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(site)]</span>
@@ -559,7 +563,7 @@ Figure 1.1: Boxplots for maximum length, width, and thickness for Jowell knives 
 <p><img src="supp_files/figure-html/ternary.plots-1.png" width="100%" /></p>
 </div>
 <div id="principal-components-analysis-for-site" class="section level2">
-<h2><span class="header-section-number">1.3</span> Principal Components Analysis for <em>site</em></h2>
+<h2><span class="header-section-number">1.4</span> Principal Components Analysis for <em>site</em></h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="linear-metrics-by-site.html#cb8-1"></a><span class="co">#pca</span></span>
 <span id="cb8-2"><a href="linear-metrics-by-site.html#cb8-2"></a>pca &lt;-<span class="st"> </span><span class="kw">autoplot</span>(<span class="kw">prcomp</span>(df),</span>
 <span id="cb8-3"><a href="linear-metrics-by-site.html#cb8-3"></a>         <span class="dt">data =</span> data,</span>
@@ -583,7 +587,7 @@ Figure 1.2: Principal Components Analysis by site.
 </div>
 </div>
 <div id="density-plots-for-variable-group" class="section level2">
-<h2><span class="header-section-number">1.4</span> Density plots for <em>variable</em> ~ <em>group</em></h2>
+<h2><span class="header-section-number">1.5</span> Density plots for <em>variable</em> ~ <em>group</em></h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-metrics-by-site.html#cb9-1"></a><span class="co"># density plot for maxl by site</span></span>
 <span id="cb9-2"><a href="linear-metrics-by-site.html#cb9-2"></a><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> maxl, <span class="dt">fill =</span> site, <span class="dt">colour =</span> site)) <span class="op">+</span></span>
 <span id="cb9-3"><a href="linear-metrics-by-site.html#cb9-3"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">.5</span>) <span class="op">+</span></span>
@@ -610,9 +614,9 @@ Figure 1.2: Principal Components Analysis by site.
 <p><img src="supp_files/figure-html/anova.dens.maxth-1.png" width="100%" /></p>
 </div>
 <div id="analyses-of-variance-anova-for-variable-site" class="section level2">
-<h2><span class="header-section-number">1.5</span> Analyses of Variance (ANOVA) for <em>variable</em> ~ <em>site</em></h2>
+<h2><span class="header-section-number">1.6</span> Analyses of Variance (ANOVA) for <em>variable</em> ~ <em>site</em></h2>
 <div id="maximum-length-of-jowell-knives" class="section level3">
-<h3><span class="header-section-number">1.5.1</span> <em>Maximum length</em> of Jowell knives</h3>
+<h3><span class="header-section-number">1.6.1</span> <em>Maximum length</em> of Jowell knives</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="linear-metrics-by-site.html#cb12-1"></a><span class="co"># anova = maximum length ~ site</span></span>
 <span id="cb12-2"><a href="linear-metrics-by-site.html#cb12-2"></a>siteml &lt;-<span class="st"> </span><span class="kw">lm.rrpp</span>(maxl <span class="op">~</span><span class="st"> </span>site, <span class="dt">SS.type =</span> <span class="st">&quot;I&quot;</span>, </span>
 <span id="cb12-3"><a href="linear-metrics-by-site.html#cb12-3"></a>                  <span class="dt">data =</span> data, <span class="dt">iter =</span> <span class="dv">9999</span>, </span>
@@ -635,7 +639,7 @@ Figure 1.2: Principal Components Analysis by site.
 ##     print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-width-of-jowell-knives" class="section level3">
-<h3><span class="header-section-number">1.5.2</span> <em>Maximum width</em> of Jowell knives</h3>
+<h3><span class="header-section-number">1.6.2</span> <em>Maximum width</em> of Jowell knives</h3>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-metrics-by-site.html#cb14-1"></a><span class="co"># anova = maximum width ~ site</span></span>
 <span id="cb14-2"><a href="linear-metrics-by-site.html#cb14-2"></a>sitemw &lt;-<span class="st"> </span><span class="kw">lm.rrpp</span>(maxw <span class="op">~</span><span class="st"> </span>site, <span class="dt">SS.type =</span> <span class="st">&quot;I&quot;</span>, </span>
 <span id="cb14-3"><a href="linear-metrics-by-site.html#cb14-3"></a>                  <span class="dt">data =</span> data, <span class="dt">iter =</span> <span class="dv">9999</span>, </span>
@@ -658,7 +662,7 @@ Figure 1.2: Principal Components Analysis by site.
 ##     print.progress = FALSE)</code></pre>
 </div>
 <div id="maximum-thickness-of-jowell-knives" class="section level3">
-<h3><span class="header-section-number">1.5.3</span> <em>Maximum thickness</em> of Jowell knives</h3>
+<h3><span class="header-section-number">1.6.3</span> <em>Maximum thickness</em> of Jowell knives</h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="linear-metrics-by-site.html#cb16-1"></a><span class="co"># anova = maximum thickness ~ site</span></span>
 <span id="cb16-2"><a href="linear-metrics-by-site.html#cb16-2"></a>sitemth &lt;-<span class="st"> </span><span class="kw">lm.rrpp</span>(maxth <span class="op">~</span><span class="st"> </span>site, <span class="dt">SS.type =</span> <span class="st">&quot;I&quot;</span>, </span>
 <span id="cb16-3"><a href="linear-metrics-by-site.html#cb16-3"></a>                   <span class="dt">data =</span> data, <span class="dt">iter =</span> <span class="dv">9999</span>, </span>
