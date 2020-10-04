@@ -3,6 +3,11 @@
 ## Load packages + data
 
 ```{r load.packages, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# install required analysis packages
+#devtools::install_github("r-lib/here")
+#devtools::install_github("karthik/wesanderson")
+#devtools::install_github("MomX/Momocs")
+
 # load packages
 library(here)
 library(wesanderson)

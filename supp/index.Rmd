@@ -23,9 +23,9 @@ knitr::include_graphics('./images/jowell.png')
 
 ## Primary findings
 
-* Maximum thickness of Jowell knives differs significantly between the two sites.
+* Jowell knives from 41HS261 are significantly thicker than those from 41AN13.
 
-* Jowell knives recovered from 41AN13 are both significantly thinner (Chapter 1) and broader in shape (Chapter 2) than those recovered from 41HS261.
+* Jowell knives recovered from 41AN13 are broader in shape than those recovered from 41HS261.
 
 * Results provide the requisite foundation needed to advance discussions of differential skill in Jowell knife production and maintenance.
 
