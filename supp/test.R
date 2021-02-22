@@ -1,14 +1,6 @@
-# Geometric morphometrics 
-
-## Load packages + data
-
-```{r load.packages, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# install required analysis packages
-#devtools::install_github("r-lib/here")
-#devtools::install_github("karthik/wesanderson")
-#devtools::install_github("MomX/Momocs")
-
 # load packages
+
+devtools::install_github("MomX/Momocs")
 library(here)
 library(wesanderson)
 library(ggplot2)
@@ -20,18 +12,14 @@ att.data <- read.csv("att.data.csv", header = TRUE, as.is = TRUE)
 
 # attributes to factors
 att.data$site <- as.factor(att.data$site)
-```
 
-## Generate outlines
-
-```{r outlines + attribues, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # generate outlines
 outlines <- jpg.list %>%
   import_jpg()
 
 # add attributes
 data.out <- Out(outlines, 
-         fac = att.data)
+                fac = att.data)
 
 # center, scale, align, and rotate specimens
 norm.outlines <- data.out %>% 
@@ -42,7 +30,7 @@ norm.outlines <- data.out %>%
 
 ## 41an13
 an13 <- filter(norm.outlines, 
-                 site %in% "41AN13")
+               site %in% "41AN13")
 
 an13 <- an13 %>% 
   coo_scale() %>%
@@ -52,7 +40,7 @@ an13 <- an13 %>%
 
 ## 41hs261
 hs261 <- filter(norm.outlines, 
-                 site %in% "41HS261")
+                site %in% "41HS261")
 
 hs261 <- hs261 %>% 
   coo_scale() %>%
@@ -61,14 +49,10 @@ hs261 <- hs261 %>%
   coo_center()
 
 # render figure
-par(mfrow=c(2, 1))
-stack(an13, title = "41AN13", xy.axis = TRUE, ldk = FALSE, centroid = FALSE, meanshape = TRUE, meanshape_col = "blue")
-stack(hs261, title = "41HS261", xy.axis = TRUE, ldk = FALSE, centroid = FALSE, meanshape= TRUE, meanshape_col = "blue")
-```
+#par(mfrow=c(2, 1))
+stack(an13, title = "41AN13", xy.axis = TRUE, centroid = FALSE, points =  FALSE)
+stack(hs261, title = "41HS261", xy.axis = TRUE, centroid = FALSE, points = FALSE)
 
-## Calibrate harmonic + EFA
-
-```{r cal.harm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # calibrate how many harmonics needed
 calibrate_harmonicpower_efourier(norm.outlines, nb.h = 30)
 
@@ -80,42 +64,39 @@ efa.outlines <- efourier(norm.outlines, nb.h = 9, norm = TRUE)
 
 # use efa.outlines for pca
 pca.outlines <- PCA(efa.outlines)
-```
 
-## PCA
-
-```{r pca.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # pca 
 scree_plot(pca.outlines)
-
+##############################################################################
 # plot pca by site
-plot_PCA(pca.outlines, 
+plot_PCA(pca.outlines,
          morphospace_position = "range_axes",
          ~site, 
-         zoom = 1.25)
+         zoom = 1.5)
+
+# plot pca by context
+plot(pca.outlines,
+     pos.shp = "range_axes",
+     ~site,
+     chull = TRUE,
+     morphospace = TRUE,
+     labelsgroups = TRUE,
+     cex.labelsgroups = 0.5,
+     rect.labelsgroups = TRUE,
+     rug = TRUE,
+     grid = TRUE,
+     zoom = 0.95)
 
 # contribution of each pc
-boxplot(pca.outlines, 
-        ~site, 
-        nax = 1:5)
+boxplot(pca.outlines, ~site, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
-PCcontrib(pca.outlines, 
-          nax = 1:5)
-```
+PCcontrib(pca.outlines, nax = 1:5)
 
-## MANOVA
-
-```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # manova
 # does shape differ between sites?
 MANOVA(pca.outlines, 'site')
-```
 
-## Mean shapes
-
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Pairwise comparison of mean shapes for Jowell knives by site."}
 # mean shapes
 ms.1 <- MSHAPES(efa.outlines, ~site)
 plot_MSHAPES(ms.1, size = 0.75)
-```
