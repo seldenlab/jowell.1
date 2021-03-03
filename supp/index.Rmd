@@ -29,6 +29,10 @@ knitr::include_graphics('./images/jowell.png')
 
 * Results provide the requisite foundation needed to advance discussions of differential skill in Jowell knife production and maintenance.
 
+## Acknowledgments
+
+Linear data and images were provided by Julian A. Sitters and Timothy K. Perttula. Many thanks to the Gregg County Historical Museum, and the Texas Archeological Research Laboratory at The University of Texas at Austin for the requisite permissions and access.
+
 ## Data management
 
 The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/aksel-blaise/jowell) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/CS436](https://osf.io/cs436/).

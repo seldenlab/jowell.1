@@ -2,6 +2,7 @@ fig:boxsite
 fig:pcasite
 fig:ms1
 primary-findings
+acknowledgments
 data-management
 colophon
 linear-metrics-by-site
@@ -17,7 +18,6 @@ maximum-thickness-of-jowell-knives
 geometric-morphometrics
 load-packages-data
 generate-outlines
-pile-and-mosaics
 calibrate-harmonic-efa
 pca
 manova
