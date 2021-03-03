@@ -33,7 +33,23 @@ knitr::include_graphics('./images/jowell.png')
 
 The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/aksel-blaise/jowell) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/CS436](https://osf.io/cs436/).
 
-```{r packages, include=TRUE}
+## Colophon
+
+This version of the analysis was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# what R packages and versions were used?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+Current Git commit details are:
+
+```{r}
+# where can I find this commit? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
+
+```{r packages, include=FALSE}
 # generate bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'

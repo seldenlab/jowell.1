@@ -14,7 +14,7 @@ library(wesanderson)
 library(Momocs)
 
 # read images + attribute data
-jpg.list <- list.files(here("/jpegs"), full.names = TRUE)
+jpg.list <- list.files(here("./jpegs"), full.names = TRUE)
 att.data <- read.csv("att.data.csv", header = TRUE, as.is = TRUE)
 
 # attributes to factors
