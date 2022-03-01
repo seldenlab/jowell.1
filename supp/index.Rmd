@@ -40,6 +40,7 @@ knitr::include_graphics('./images/pca.png')
 ```{r figjowellmshape, fig.cap="Mean shapes for Jowell knives from 41AN13 and 41HS261."}
 knitr::include_graphics('./images/mean.shape.png')
 ```
+
 ## Acknowledgments
 
 Linear data and images of the Jowell knives were provided by Julian A. Sitters and Timothy K. Perttula. Many thanks to the Gregg County Historical Museum and the Texas Archeological Research Laboratory at The University of Texas at Austin for the requisite permissions and access associated with data collection.
