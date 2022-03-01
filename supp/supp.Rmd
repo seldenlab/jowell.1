@@ -1,3 +1,46 @@
+--- 
+title: "A quantitative assessment of Jowell knife morphology"
+author: 
+    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Pilot study of Jowell knife morphology."
+---
+
+# Preface {-}
+
+Placeholder
+
+
+## Primary findings
+## Acknowledgments
+## Funding {-}
+## Data management
+## Colophon
+
+<!--chapter:end:index.Rmd-->
+
+
+# Linear metrics by site
+
+Placeholder
+
+
+## Set working directory, load data, and define variables
+## Boxplots for _variable_ by _site_
+## Ternary plot
+## Principal Components Analysis for _site_
+## Analyses of Variance (ANOVA) for _variable_ ~ _site_
+### _Maximum length_ of Jowell knives
+### _Maximum width_ of Jowell knives
+### _Maximum thickness_ of Jowell knives
+
+<!--chapter:end:01-linear.Rmd-->
+
 # Geometric morphometrics 
 
 ## Load packages + data
@@ -133,3 +176,12 @@ MANOVA(pca.outlines, 'site')
 ms.1 <- MSHAPES(efa.outlines, ~site)
 plot_MSHAPES(ms.1, size = 0.75)
 ```
+
+<!--chapter:end:02-2dgm.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:06-references.Rmd-->
+

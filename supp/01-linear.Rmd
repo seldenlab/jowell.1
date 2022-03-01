@@ -31,11 +31,6 @@ maxl <- data$length # maximum length
 maxw <- data$width# maximum width
 maxth <- data$thickness # maximum thickness
 site <- data$site # site name
-
-# print data
-knitr::kable(data, 
-             align = "ccccc", 
-             caption = "Attributes included in linear data (all measurements in mm).")
 ```
 
 ## Boxplots for _variable_ by _site_
@@ -113,47 +108,18 @@ pca <- autoplot(prcomp(df),
 ggMarginal(pca, groupColour = TRUE, groupFill = TRUE)
 ```
 
-## Density plots for _variable_ ~ _group_
-
-```{r anova.dens.maxl, out.width = "100%", dpi = 300, echo=TRUE}
-# density plot for maxl by site
-ggplot(data, aes(x = maxl, fill = site, colour = site)) +
-  geom_density(alpha = .5) +
-  scale_fill_manual(values = wes_palette("Moonrise2")) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
-  xlim(0,150) +
-  labs(x = 'Max Length', y = 'density')
-```
-
-```{r anova.dens.maxw, out.width = "100%", dpi = 300, echo=TRUE}
-# density plot for maxw by site
-ggplot(data, aes(x = maxw, fill = site, colour = site)) +
-  geom_density(alpha = .4) +
-  scale_fill_manual(values = wes_palette("Moonrise2")) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
-  xlim(0,75) +
-  labs(x = 'Max Width', y = 'density')
-```
-
-```{r anova.dens.maxth, out.width = "100%", dpi = 300, echo=TRUE}
-# density plot for maxth by site
-ggplot(data, aes(x = maxth, fill = site, colour = site)) +
-  geom_density(alpha = .4) +
-  scale_fill_manual(values = wes_palette("Moonrise2")) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
-  xlim(0,25) +
-  labs(x = 'Max Thickness', y = 'density')
-```
-
 ## Analyses of Variance (ANOVA) for _variable_ ~ _site_
 
 ### _Maximum length_ of Jowell knives
 
 ```{r anovasitemaxl, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum length ~ site
-siteml <- lm.rrpp(maxl ~ site, SS.type = "I", 
-                  data = data, iter = 9999, 
+siteml <- lm.rrpp(maxl ~ site, 
+                  SS.type = "I", 
+                  data = data, 
+                  iter = 9999, 
                   print.progress = FALSE)
+
 anova(siteml)
 ```
 
@@ -161,9 +127,12 @@ anova(siteml)
 
 ```{r anovasitemaxw, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum width ~ site
-sitemw <- lm.rrpp(maxw ~ site, SS.type = "I", 
-                  data = data, iter = 9999, 
+sitemw <- lm.rrpp(maxw ~ site, 
+                  SS.type = "I", 
+                  data = data, 
+                  iter = 9999, 
                   print.progress = FALSE)
+
 anova(sitemw)
 ```
 
@@ -171,8 +140,11 @@ anova(sitemw)
 
 ```{r anovasitemaxth, out.width = "100%", dpi = 300, echo=TRUE}
 # anova = maximum thickness ~ site
-sitemth <- lm.rrpp(maxth ~ site, SS.type = "I", 
-                   data = data, iter = 9999, 
+sitemth <- lm.rrpp(maxth ~ site, 
+                   SS.type = "I", 
+                   data = data, 
+                   iter = 9999, 
                    print.progress = FALSE)
+
 anova(sitemth)
 ```
