@@ -39,45 +39,6 @@ norm.outlines <- data.out %>%
   coo_scale() %>%
   coo_align() %>% 
   coo_rotate()
-
-## 41an13
-an13 <- filter(norm.outlines, 
-                 site %in% "41AN13")
-
-an13 <- an13 %>% 
-  coo_scale() %>%
-  coo_align() %>%
-  coo_rotate() %>% 
-  coo_center()
-
-## 41hs261
-hs261 <- filter(norm.outlines, 
-                 site %in% "41HS261")
-
-hs261 <- hs261 %>% 
-  coo_scale() %>%
-  coo_align() %>%
-  coo_rotate() %>% 
-  coo_center()
-
-# render figure
-par(mfrow=c(2, 1))
-
-stack(an13, 
-      title = "41AN13", 
-      xy.axis = TRUE, 
-      ldk = FALSE, 
-      centroid = FALSE, 
-      meanshape = TRUE, 
-      meanshape_col = "blue")
-
-stack(hs261, 
-      title = "41HS261", 
-      xy.axis = TRUE, 
-      ldk = FALSE, 
-      centroid = FALSE, 
-      meanshape= TRUE, 
-      meanshape_col = "blue")
 ```
 
 ## Calibrate harmonic + EFA

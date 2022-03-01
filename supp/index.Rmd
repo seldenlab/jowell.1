@@ -15,7 +15,7 @@ description: "Pilot study of Jowell knife morphology."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-```{r figjowellmorph, fig.cap="Jowell knives from 41AN13 and 41HS261."}
+```{r figjowellmorph, fig.cap="Jowell knives from Jowell Farm (41AN13) and 41HS261."}
 knitr::include_graphics('./images/jowell.illustration.jpg')
 ```
 
@@ -25,13 +25,24 @@ knitr::include_graphics('./images/jowell.illustration.jpg')
 
  - Jowell knives from 41HS261 are **significantly thicker** than those from 41AN13.
  
+```{r figjowellbox, fig.cap="Boxplots for linear measurements associated with Jowell knives from 41AN13 and 41HS261."}
+knitr::include_graphics('./images/boxplot.png')
+```
+ 
 ### Geometric morphometrics
 
- - Jowell knives recovered at 41AN13 **differ significantly in shape** from those recovered at 41HS261.
+ - Jowell knives recovered at 41AN13 **differ significantly in shape** (are broader) from those recovered at 41HS261.
+ 
+```{r figjowellpca, fig.cap="PCA for shape variables associated with Jowell knives from 41AN13 and 41HS261."}
+knitr::include_graphics('./images/pca.png')
+```
 
+```{r figjowellmshape, fig.cap="Mean shapes for Jowell knives from 41AN13 and 41HS261."}
+knitr::include_graphics('./images/mean.shape.png')
+```
 ## Acknowledgments
 
-Linear data and images of the Jowell knives were provided by Julian A. Sitters and Timothy K. Perttula. Many thanks to the Gregg County Historical Museum, and the Texas Archeological Research Laboratory at The University of Texas at Austin for the requisite permissions and access associated with data collection.
+Linear data and images of the Jowell knives were provided by Julian A. Sitters and Timothy K. Perttula. Many thanks to the Gregg County Historical Museum and the Texas Archeological Research Laboratory at The University of Texas at Austin for the requisite permissions and access associated with data collection.
 
 ## Funding {-}
 
