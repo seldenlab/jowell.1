@@ -9,6 +9,7 @@ primary-findings
 linear-metrics
 geometric-morphometrics
 acknowledgments
+funding
 data-management
 colophon
 linear-metrics-by-site

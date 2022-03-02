@@ -45,7 +45,7 @@ knitr::include_graphics('./images/mean.shape.png')
 
 My thanks go to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for permission and access to NAGPRA and previously repatriated collections. My gratitude is also extended to Julian A. Sitters and Timothy K. Perttula for providing the linear data and images from their documentation effort, and to the Gregg County Historical Museum and Texas Archeological Research Laboratory at The University of Texas at Austin for access associated with data collection. Thanks to John Harman for access to the DStretch plugin for ImageJ, to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the analyses of Caddo biface morphology, and to Emma Sherratt, Kersten Bergstrom, Dean C. Adams, and Michael L. Collyer for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
 
-## Funding {-}
+## Funding
 
 Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Tribe of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to analyse the Jowell knives from 41AN13 and 41HS261 was provided by the Heritage Research Center at Stephen F. Austin State University.
 
