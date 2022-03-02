@@ -72,11 +72,11 @@ plot_PCA(pca.outlines,
 # contribution of each pc
 boxplot(pca.outlines, 
         ~site, 
-        nax = 1:5)
+        nax = 1:10)
 
 # mean shape + 2sd for the first 10 pcs
 PCcontrib(pca.outlines, 
-          nax = 1:5)
+          nax = 1:10)
 ```
 
 ## MANOVA

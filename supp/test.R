@@ -53,13 +53,13 @@ hs261 <- hs261 %>%
 stack(an13, title = "41AN13", xy.axis = TRUE, centroid = FALSE, points =  FALSE)
 stack(hs261, title = "41HS261", xy.axis = TRUE, centroid = FALSE, points = FALSE)
 
-# calibrate how many harmonics needed
+# calibrate how many harmonics needed ----
 calibrate_harmonicpower_efourier(norm.outlines, nb.h = 30)
 
 # 9 harmonics needed to capture 99 percent of variation
 calibrate_reconstructions_efourier(norm.outlines, range = 1:9)
 
-# generate efa outlines with 9 harmonics
+# generate efa outlines with 9 harmonics ----
 efa.outlines <- efourier(norm.outlines, nb.h = 9, norm = TRUE)
 
 # use efa.outlines for pca
@@ -67,8 +67,9 @@ pca.outlines <- PCA(efa.outlines)
 
 # pca 
 scree_plot(pca.outlines)
-##############################################################################
-# plot pca by site
+
+
+# plot pca by site ----
 plot_PCA(pca.outlines,
          morphospace_position = "range_axes",
          ~site, 
@@ -88,15 +89,15 @@ plot(pca.outlines,
      zoom = 0.95)
 
 # contribution of each pc
-boxplot(pca.outlines, ~site, nax = 1:5)
+boxplot(pca.outlines, ~site, nax = 1:10)
 
 # mean shape + 2sd for the first 10 pcs
-PCcontrib(pca.outlines, nax = 1:5)
+PCcontrib(pca.outlines, nax = 1:10)
 
-# manova
+# manova ----
 # does shape differ between sites?
 MANOVA(pca.outlines, 'site')
 
-# mean shapes
+# mean shapes ----
 ms.1 <- MSHAPES(efa.outlines, ~site)
 plot_MSHAPES(ms.1, size = 0.75)
