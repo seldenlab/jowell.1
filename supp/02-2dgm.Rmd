@@ -26,7 +26,6 @@ qdata <- read.csv("qdata.morph.csv",
 ```{r outlines, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # gpa ----
 Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
-plot(Y.gpa)
 
 # geomorph data frame ----
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
@@ -75,9 +74,9 @@ shapeHulls(pc.plot,
            group.cols = col.hull)
 ```
 
-## MANOVA
+## ANOVA
 
-```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r anova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA ----
 # size
 fit.sz <- procD.lm(size ~ merged,

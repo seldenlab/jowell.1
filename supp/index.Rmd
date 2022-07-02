@@ -1,5 +1,5 @@
 --- 
-title: "Jowell knife reduction practices result in discrete shape difference between Caddo sites in the American Southeast"
+title: "Local Caddo resharpening practices result in convergent morphologies for Jowell knives from 41AN13 and 41HS261"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
@@ -15,7 +15,7 @@ description: "Pilot study of Jowell knife morphology."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-Jowell knives from 41AN13 and 41HS261 comprise the two largest samples from the ancestral Caddo area, providing those data needed to assess local differences in linear and shape variables potentially related to differential retouch practices. Findings demonstrate that knives from 41HS261 are both thicker and less broad than those from 41AN13, potentially indicative of differences in retouch or manufacture. Analysis of the flaking index demonstrates that knives from 41HS261 are more heavily retouched than those from 41AN13. 
+Jowell knives from 41AN13 and 41HS261 comprise the two largest samples from the ancestral Caddo area. All knives in the sample were manufactured using Edwards chert, and are thought to have been acquired by the Caddo through trade with central Texas groups. The sample from each site was subset into large and small groups, reflective of original manufacture (large), and local Caddo resharpening efforts (small). These categories were used to assess whether Caddo resharpening practices resulted in similar---convergent---morphologies among the small knives. It was also hypothesized that greater shape variation would be apparent at their larger size due to the influence of non-local manufacturing practices as well as Caddo selective preference. Results of the analysis of linear variables demonstrated that large and small Jowell knives differ in thickness between both sites, where those from 41HS261 are thicker in both instances. The geometric morphometric analysis demonstrated that while the shape of Jowell knives from the large size class differed between sites, the small size class did not, providing support for the argument for convergent shape change thought to articulate with local Caddo retouch or resharpening efforts. The analysis of morphological disparity supports the argument for greater diversity in Jowell knife shape in the larger size class at 41AN13, suggesting a greater variety of shapes associated with manufacture that became increasingly standardized through local Caddo resharpening and/or retouch efforts.
 
 ```{r figjowellmorph, fig.cap="Illustration of Jowell knives from 41AN13 and 41HS261, ordered by length."}
 knitr::include_graphics('./images/jowell.illustration.png')
@@ -25,7 +25,14 @@ knitr::include_graphics('./images/jowell.illustration.png')
 
 ### Linear metrics
 
- - Jowell knives from 41HS261 are **significantly thicker** than those from 41AN13.
+ -    Large and small Jowell knives from 41AN13 **differ significantly** in length, which was expected due to how the sample was parsed
+ -    Large and small Jowell knives from 41HS261 **differ significantly** in length, which was expected due to how the sample was parsed
+ -    Large Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
+ -    Small Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
+
+```{r figjowellpcalinear, fig.cap="PCA of linear measures for Jowell knives from 41AN13_L/S and 41HS261_L/S."}
+knitr::include_graphics('./images/pcalinear.png')
+```
 
 ```{r figjowellbox, fig.cap="Boxplots for linear measurements associated with Jowell knives from 41AN13 and 41HS261."}
 knitr::include_graphics('./images/boxplot.png')
@@ -33,10 +40,16 @@ knitr::include_graphics('./images/boxplot.png')
 
 ### Geometric morphometrics
 
- - Jowell knives recovered at 41AN13 **differ significantly in shape**---are broader---from those recovered at 41HS261.
+  -   Jowell knives recovered at 41AN13 and 41HS261 **differ significantly in shape** at their larger size, but not at their smaller size
+  -   Results of the trajectory analysis _were not significant_, demonstrating convergent morphology
+  -   Morphological disparity is **significantly greater** in the large size class at 41AN13
 
-```{r figjowellmshape, fig.cap="Mean shapes for Jowell knives from 41AN13 and 41HS261."}
-knitr::include_graphics('./images/mean.shape.png')
+```{r figjowellpca, fig.cap="PCA of shape variables for Jowell knives from 41AN13_L/S and 41HS261_L/S."}
+knitr::include_graphics('./images/pca.png')
+```
+
+```{r figjowellmshape, fig.cap="Resharpening trajectories do not differ, and illustrate convergent morphology (larger-to-smaller) for Jowell knives."}
+knitr::include_graphics('./images/trajectory.png')
 ```
 
 ## Acknowledgments
@@ -49,7 +62,7 @@ Components of this analytical work flow were developed and funded by a Preservat
 
 ## Data management
 
-The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/seldenlab/jowell-1) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/CS436](https://osf.io/cs436/). The reproducible nature of this enterprise provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+The analysis code associated with this project can be accessed through this document. The reproducible nature of this enterprise provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
 Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN11783;@RN21001;@RN9364], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 

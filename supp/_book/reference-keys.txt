@@ -1,5 +1,7 @@
 fig:figjowellmorph
+fig:figjowellpcalinear
 fig:figjowellbox
+fig:figjowellpca
 fig:figjowellmshape
 fig:boxsite
 fig:pcasite
@@ -22,7 +24,7 @@ geometric-morphometrics-1
 load-packages-data
 generalised-procrustes-analysis
 principal-components-analysis
-manova
+anova
 trajectory-analysis
 morphological-disparity
 mean-shapes
