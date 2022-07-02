@@ -1,10 +1,8 @@
 fig:figjowellmorph
 fig:figjowellbox
-fig:figjowellpca
 fig:figjowellmshape
 fig:boxsite
 fig:pcasite
-fig:ms1
 primary-findings
 linear-metrics
 geometric-morphometrics
@@ -13,9 +11,8 @@ funding
 data-management
 colophon
 linear-metrics-by-site
-set-working-directory-load-data-and-define-variables
+load-data-define-ls
 boxplots-for-variable-by-site
-ternary-plot
 principal-components-analysis-for-site
 analyses-of-variance-anova-for-variable-site
 maximum-length-of-jowell-knives
@@ -23,8 +20,9 @@ maximum-width-of-jowell-knives
 maximum-thickness-of-jowell-knives
 geometric-morphometrics-1
 load-packages-data
-generate-outlines
-calibrate-harmonic-efa
-pca
+generalised-procrustes-analysis
+principal-components-analysis
 manova
+trajectory-analysis
+morphological-disparity
 mean-shapes

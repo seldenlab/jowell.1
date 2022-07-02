@@ -3,94 +3,166 @@
 ## Load packages + data
 
 ```{r load.packages, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# install required analysis packages
-#devtools::install_github("r-lib/here")
-#devtools::install_github("karthik/wesanderson")
-#devtools::install_github("MomX/Momocs")
-
-# load packages
+# load required analysis packages
 library(here)
+library(StereoMorph)
+library(geomorph)
+library(tidyverse)
 library(wesanderson)
 library(ggplot2)
-library(Momocs)
 
-# read images + attribute data
-jpg.list <- list.files(here("./jpegs"), full.names = TRUE)
-att.data <- read.csv("att.data.csv", header = TRUE, as.is = TRUE)
+# read data and define number of sLMs ----
+shapes <- readShapes("shapes")
+shapesGM <- readland.shapes(shapes, nCurvePts = c(50,50))
 
-# attributes to factors
-att.data$site <- as.factor(att.data$site)
+# read qualitative data
+qdata <- read.csv("qdata.morph.csv", 
+                  header = TRUE, 
+                  row.names = 1)
 ```
 
-## Generate outlines
+## Generalised Procrustes Analysis
 
 ```{r outlines, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# generate outlines
-outlines <- jpg.list %>%
-  import_jpg()
+# gpa ----
+Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+plot(Y.gpa)
 
-# add attributes
-data.out <- Out(outlines, 
-         fac = att.data)
+# geomorph data frame ----
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
+                           size = Y.gpa$Csize,
+                           merged = qdata$merged)
 
-# center, scale, align, and rotate specimens
-norm.outlines <- data.out %>% 
-  coo_center %>%
-  coo_scale() %>%
-  coo_align() %>% 
-  coo_rotate()
+
+# add centroid size to qdata
+qdata$csz <- Y.gpa$Csize
+
+# attributes for boxplot
+csz <- qdata$csz # centroid size
+site <-  qdata$site # site
+
+# boxplot of Jowell knife centroid size by site ----
+csz.site <- ggplot(qdata, aes(x = merged, y = csz, color = merged)) + 
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Site', y = 'Centroid Size')
+
+# render boxplot
+csz.site
 ```
 
-## Calibrate harmonic + EFA
-
-```{r cal.harm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# calibrate how many harmonics needed
-calibrate_harmonicpower_efourier(norm.outlines, nb.h = 30)
-
-# 9 harmonics needed to capture 99 percent of variation
-calibrate_reconstructions_efourier(norm.outlines, range = 1:9)
-
-# generate efa outlines with 9 harmonics
-efa.outlines <- efourier(norm.outlines, nb.h = 9, norm = TRUE)
-
-# use efa.outlines for pca
-pca.outlines <- PCA(efa.outlines)
-```
-
-## PCA
+## Principal Components Analysis
 
 ```{r pca.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# pca 
-scree_plot(pca.outlines)
+# principal components analysis ----
+pca<-gm.prcomp(Y.gpa$coords)
+summary(pca)
+
+# set plot parameters
+pch.gps <- c(1:4)[as.factor(qdata$merged)]
+col.gps <- wes_palette("Moonrise2")[as.factor(qdata$merged)]
+col.hull <- c("#CCC591", "#29211F", "#798E87", "#C27D38")
 
 # plot pca by site
-plot_PCA(pca.outlines, 
-         morphospace_position = "range_axes",
-         ~site, 
-         zoom = 1.25)
-
-# contribution of each pc
-boxplot(pca.outlines, 
-        ~site, 
-        nax = 1:10)
-
-# mean shape + 2sd for the first 10 pcs
-PCcontrib(pca.outlines, 
-          nax = 1:10)
+pc.plot <- plot(pca, 
+                asp = 1,
+                pch = pch.gps,
+                col = col.gps)
+shapeHulls(pc.plot, 
+           groups = qdata$merged,
+           group.cols = col.hull)
 ```
 
 ## MANOVA
 
 ```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# manova
-# does shape differ between sites?
-MANOVA(pca.outlines, 'site')
+# ANOVA ----
+# size
+fit.sz <- procD.lm(size ~ merged,
+                   data = gdf,
+                   print.progress = FALSE,
+                   iter = 9999)
+
+anova(fit.sz)
+
+# pairwise comparison of LS means = which differ?
+pw.sz <- pairwise(fit.sz,
+                  groups = qdata$merged)
+summary(pw.sz, 
+        confidence = 0.95, 
+        test.type = "dist")
+
+# shape
+fit.sh <- procD.lm(shape ~ merged,
+                   data = gdf,
+                   print.progress = FALSE,
+                   iter = 9999)
+
+anova(fit.sh)
+
+# pairwise comparison of LS means = which differ?
+pw.sh <- pairwise(fit.sh,
+                  groups = qdata$merged)
+summary(pw.sh, 
+        confidence = 0.95, 
+        test.type = "dist")
 ```
 
-## Mean shapes
+## Trajectory Analysis
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Pairwise comparison of mean shapes for Jowell knives by site."}
-# mean shapes
-ms.1 <- MSHAPES(efa.outlines, ~site)
-plot_MSHAPES(ms.1, size = 0.75)
+```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# trajectory analysis::shape----
+TA <- trajectory.analysis(fit.sh,
+                          groups = qdata$site, 
+                          traj.pts = qdata$size,
+                          print.progress = FALSE)
+
+# magnitude difference
+summary(TA, 
+        attribute = "MD",
+        show.trajectories = TRUE)
+
+# plot
+TP <- plot(TA, 
+           pch = as.numeric(qdata$site), 
+           bg = as.numeric(qdata$size),
+           cex = 0.9,
+           col = "gray")
+add.trajectories(TP, 
+                 traj.pch = c(1,2),
+                 traj.cex = 1)
+```
+
+## Morphological Disparity
+
+```{r mdisp, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# morphological disparity ----
+# do any of the groups display greater shape variation among 
+# individuals relative to the other group?
+morphol.disparity(shape ~ merged,
+                  groups = qdata$merged, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+```
+
+## Mean Shapes
+
+```{r mshape, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# mean shapes ----
+# subset landmark coordinates to produce mean shapes
+new.coords<-coords.subset(A = Y.gpa$coords,
+                          group = qdata$merged)
+names(new.coords)
+
+# group shape means
+mean <- lapply(new.coords, mshape)
+
+# comparison plots
+plotRefToTarget(mean$AN13_L,
+                mean$HS261_L, 
+                method = c("point"),
+                mag = 2)
 ```
