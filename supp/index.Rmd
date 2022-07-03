@@ -15,7 +15,7 @@ description: "Pilot study of Jowell knife morphology."
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-Jowell knives from 41AN13 and 41HS261 comprise the two largest samples of the type from the ancestral Caddo area. All were manufactured using Edwards chert, and are thought to have been acquired by the Caddo through trade with central Texas groups. The sample from each site was subset into two groups to reflect original manufacture (larger size), and local Caddo resharpening efforts (smaller size). These categories were used to assess whether local Caddo resharpening practices resulted in similar---convergent---shapes at their smaller size. It was also hypothesized that greater shape variation would be apparent at their larger size due to the influence of Caddo selective preference and non-local manufacture. Results of the analysis of linear variables demonstrated that large and small Jowell knives differ in thickness between both sites, where those from 41HS261 are thicker in both instances, suggesting local preference for thicker knives. The geometric morphometric analysis demonstrated that while the shape of Jowell knives from the large size class differed between sites, the small size class did not, supporting the argument for convergent shape change associated with local Caddo retouch or resharpening. The analysis of morphological disparity provides support for the argument that greater diversity in Jowell knife shape occurs in the larger size class at 41AN13, suggesting that greater shape variability is associated with Caddo selective preference, which subsequently becomes more standardized through local retouch or resharpening efforts.
+Jowell knives from 41AN13 and 41HS261 comprise the two largest samples of this ill-understood lithic type from the ancestral Caddo area. All are thought to have been manufactured using Edwards chert, and acquired by the Caddo through trade with central Texas groups. Due to the very real possibility that these knives bear two discrete knapping signatures, the sample from each site was subset into two size classes reflective of original manufacture (longer), and local Caddo resharpening efforts (shorter). These categories were used to assess whether local Caddo resharpening practices resulted in similar---convergent---shapes in the smaller size class, and to test the hypothesis that greater shape variation would be apparent in the larger size class due to the influence of Caddo selective preference. The analysis of linear variables demonstrated that large and small Jowell knives differ in thickness between sites, where those from 41HS261 are thicker in both size classes, suggestive of a local preference for thicker knives. The geometric morphometric analysis demonstrated that while the shape of Jowell knives from the large size class differed between sites, the small size class did not, supporting the argument for convergent morphologies associated with local Caddo resharpening. The analysis of morphological disparity supports the argument for greater diversity in Jowell knife shape in the larger size class at 41AN13, supporting the argument for the occurrence of greater shape variability in Caddo selective preference, and where the shape of Jowell knives becomes more standardized through local resharpening efforts.
 
 ```{r figjowellmorph, fig.cap="Illustration of Jowell knives from 41AN13 and 41HS261, ordered by length."}
 knitr::include_graphics('./images/jowell.illustration.png')
@@ -25,8 +25,8 @@ knitr::include_graphics('./images/jowell.illustration.png')
 
 ### Linear metrics
 
- -    Large and small Jowell knives from 41AN13 **differ significantly** in length, which was expected due to how the sample was parsed
- -    Large and small Jowell knives from 41HS261 **differ significantly** in length, which was expected due to how the sample was parsed
+ -    Large and small Jowell knives from 41AN13 **differ significantly** in length, _which was expected due to how the sample was parsed_
+ -    Large and small Jowell knives from 41HS261 **differ significantly** in length, _which was expected due to how the sample was parsed_
  -    Large Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
  -    Small Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
 
@@ -40,15 +40,14 @@ knitr::include_graphics('./images/boxplot.png')
 
 ### Geometric morphometrics
 
-  -   Jowell knives recovered at 41AN13 and 41HS261 **differ significantly in shape** at their larger size, but not at their smaller size
-  -   Results of the trajectory analysis _were not significant_, demonstrating convergent morphology
-  -   Morphological disparity is **significantly greater** in the large size class at 41AN13
+  -   Jowell knives recovered at 41AN13 and 41HS261 **differ significantly in shape** at their _larger size_, but not at their _smaller size_, demonstrating convergent morphology
+  -   Morphological disparity is **significantly greater** in the _large size class_ at 41AN13
 
 ```{r figjowellpca, fig.cap="PCA of shape variables for Jowell knives from 41AN13_L/S and 41HS261_L/S."}
 knitr::include_graphics('./images/pca.png')
 ```
 
-```{r figjowellmshape, fig.cap="Resharpening trajectories do not differ, and illustrate convergent morphology (larger-to-smaller) for Jowell knives."}
+```{r figjowellmshape, fig.cap="Resharpening trajectories do not differ, and illustrate convergent morphology as Jowell knives were resharpened by the Caddo."}
 knitr::include_graphics('./images/trajectory.png')
 ```
 
