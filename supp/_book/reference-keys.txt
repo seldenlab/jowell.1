@@ -1,3 +1,4 @@
+fig:figjowellmap
 fig:figjowellmorph
 fig:figjowellpcalinear
 fig:figjowellbox
