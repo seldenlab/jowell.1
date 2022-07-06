@@ -1,4 +1,4 @@
-# Linear metrics by site
+# Linear2
 
 ```{r load packages 3, echo=TRUE}
 # install required analysis packages
@@ -24,63 +24,16 @@ library(ggExtra)
 ```{r setwd ld define variables 3, echo=TRUE}
 # define subsets, assign L/S----
 # load data
-DATA <- read.csv("linear.csv", 
-                 header = TRUE, 
-                 as.is=TRUE)
-
-#select vars
-pre.data <- DATA %>% 
-  select(spec:thickness)
-
-# hs261 subset----
-hs261 <- subset(pre.data,
-                site == "41HS261")
-
-## histogram of max length
-hist(hs261$length)
-
-# calculate the mean length
-meanl <- mean(hs261$length)
-
-# assign L/S varieties based on mean length
-lcheck2 <- hs261$length >= meanl
-lcheck3 <- hs261$length >= 0 & hs261$length < meanl
-
-hs261$size <- ""
-hs261$size <- ifelse(lcheck2, "L", hs261$size)
-hs261$size <- ifelse(lcheck3, "S", hs261$size)
-
-# an13 subset----
-an13 <- subset(pre.data,
-               site == "41AN13")
-
-## histogram of max length
-hist(an13$length)
-
-# calculate the mean length
-meanl <- mean(an13$length)
-
-# assign L/S varieties based on mean length
-lcheck2 <- an13$length >= meanl
-lcheck3 <- an13$length >= 0 & an13$length < meanl
-
-an13$size <- ""
-an13$size <- ifelse(lcheck2, "L", an13$size)
-an13$size <- ifelse(lcheck3, "S", an13$size)
-
-# aggregate data
-mx <- bind_rows(hs261, an13)
-
-# join site and size class
-qdata <- mx %>% 
-  unite("merged", site, size, remove = FALSE)
+size.class <- read.csv("sizeclass.csv",
+                       header = TRUE,
+                       as.is=TRUE)
 ```
 
 ## Boxplots for _variable_ by _site_
 
 ```{r boxsite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplots for maximum length, width, and thickness for Jowell knives from 41AN13 and 41HS261."}
 # boxplot of maximum length ~ site
-sitemaxl <- ggplot(qdata, aes(x = merged, y = length, color = merged)) + 
+sitemaxl <- ggplot(size.class, aes(x = merged, y = length, color = merged)) + 
   geom_boxplot() +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
@@ -88,7 +41,7 @@ sitemaxl <- ggplot(qdata, aes(x = merged, y = length, color = merged)) +
   labs(x = 'Site', y = 'MaxL')
 
 # boxplot of maximum width ~ site
-sitemaxw <- ggplot(qdata, aes(x = merged, y = width, color = merged)) + 
+sitemaxw <- ggplot(size.class, aes(x = merged, y = width, color = merged)) + 
   geom_boxplot() +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
@@ -96,7 +49,7 @@ sitemaxw <- ggplot(qdata, aes(x = merged, y = width, color = merged)) +
   labs(x = 'Site', y = 'MaxW')
 
 # boxplot of maximum thickness ~ site
-sitemaxth <- ggplot(qdata, aes(x = merged, y = thickness, color = merged)) + 
+sitemaxth <- ggplot(size.class, aes(x = merged, y = thickness, color = merged)) + 
   geom_boxplot() +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
   scale_colour_manual(values = wes_palette("Moonrise2")) +
@@ -116,13 +69,13 @@ sitefigure
 
 ```{r pcasite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Principal Components Analysis by site."}
 #attributes for plot
-merged <- qdata$merged
-df <- qdata[c(4:6)]
+merged <- size.class$merged
+df <- size.class[c(4:6)]
 pch.gps.gp <- c(15:18)[as.factor(merged)]
 
 #pca
 pca <- autoplot(prcomp(df),
-         data = qdata,
+         data = size.class,
          asp = 1,
          shape = pch.gps.gp,
          colour = 'merged',
@@ -145,7 +98,7 @@ ggMarginal(pca, groupColour = TRUE, groupFill = TRUE)
 # anova = maximum length ~ site
 siteml <- lm.rrpp(length ~ merged, 
                   SS.type = "I", 
-                  data = qdata, 
+                  data = size.class, 
                   iter = 9999, 
                   print.progress = FALSE)
 
@@ -154,7 +107,7 @@ anova(siteml)
 
 # pairwise comparison of LS means = which differ?
 sh.pwml <- pairwise(siteml,
-                     groups = qdata$merged)
+                    groups = size.class$merged)
 summary(sh.pwml, 
         confidence = 0.95, 
         test.type = "dist")
@@ -166,7 +119,7 @@ summary(sh.pwml,
 # anova = maximum width ~ site
 sitemw <- lm.rrpp(width ~ merged, 
                   SS.type = "I", 
-                  data = qdata, 
+                  data = size.class, 
                   iter = 9999, 
                   print.progress = FALSE)
 
@@ -179,7 +132,7 @@ anova(sitemw)
 # anova = maximum thickness ~ site
 sitemth <- lm.rrpp(thickness ~ merged, 
                    SS.type = "I", 
-                   data = qdata, 
+                   data = size.class, 
                    iter = 9999, 
                    print.progress = FALSE)
 
@@ -188,7 +141,7 @@ anova(sitemth)
 
 # pairwise comparison of LS means = which differ?
 sh.pwmth <- pairwise(sitemth,
-                     groups = qdata$merged)
+                     groups = size.class$merged)
 summary(sh.pwmth, 
         confidence = 0.95, 
         test.type = "dist")

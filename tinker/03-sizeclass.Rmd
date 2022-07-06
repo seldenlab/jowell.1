@@ -1,0 +1,83 @@
+# Size class
+
+## Load packages + data
+
+```{r load.packages, out.width = "100%", dpi = 300, echo=TRUE, eval = FALSE, warning=FALSE}
+# load required analysis packages
+library(here)
+library(StereoMorph)
+library(geomorph)
+library(tidyverse)
+library(wesanderson)
+library(ggplot2)
+
+# read data and define number of sLMs ----
+shapes <- readShapes("shapes")
+shapesGM <- readland.shapes(shapes, nCurvePts = c(50,50))
+
+# read qualitative data
+qdata <- read.csv("qdata.morph2.csv", 
+                  header = TRUE, 
+                  row.names = 1)
+```
+
+## Generalised Procrustes Analysis
+
+```{r outlines, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, eval = FALSE}
+# gpa ----
+Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+
+# geomorph data frame ----
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
+                           size = Y.gpa$Csize)
+
+
+# add centroid size to qdata
+qdata$csz <- Y.gpa$Csize
+```
+
+```{r setwd ld define variables 3, echo=TRUE, eval = FALSE}
+#select vars
+pre.data <- qdata %>% 
+  select(site:csz)
+
+# hs261 subset----
+hs261 <- filter(pre.data,
+                site == "HS261")
+
+# calculate mean centroid size
+mean.csz <- mean(hs261$csz)
+
+# assign L/S varieties based on mean centroid size
+lcheck2 <- hs261$csz >= mean.csz
+lcheck3 <- hs261$csz >= 0 & hs261$csz < mean.csz
+
+hs261$size <- ""
+hs261$size <- ifelse(lcheck2, "L", hs261$size)
+hs261$size <- ifelse(lcheck3, "S", hs261$size)
+
+# an13 subset----
+an13 <- subset(pre.data,
+               site == "AN13")
+
+# calculate the mean length
+mean.csz <- mean(an13$csz)
+
+# assign L/S varieties based on mean length
+lcheck2 <- an13$csz >= mean.csz
+lcheck3 <- an13$csz >= 0 & an13$csz < mean.csz
+
+an13$size <- ""
+an13$size <- ifelse(lcheck2, "L", an13$size)
+an13$size <- ifelse(lcheck3, "S", an13$size)
+
+# aggregate data
+mx <- bind_rows(hs261, an13)
+
+# join site and size class
+qdata2 <- mx %>% 
+  unite("merged", site, size, remove = FALSE)
+
+# export csv with size classes for analysis
+write.csv(qdata2, "sizeclass.csv")
+```

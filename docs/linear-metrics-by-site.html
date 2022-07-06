@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Pilot study of Jowell knife morphology." />
   
 
-<meta name="author" content="Robert Z. Selden, Jr." />
+<meta name="author" content="Robert Z. Selden, Jr., and John E. Dockall" />
 
 
 <meta name="date" content="2022-07-06" />
@@ -245,11 +245,10 @@ div.csl-indent {
 <span id="cb12-10"><a href="linear-metrics-by-site.html#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-11"><a href="linear-metrics-by-site.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># hs261 subset----</span></span>
 <span id="cb12-12"><a href="linear-metrics-by-site.html#cb12-12" aria-hidden="true" tabindex="-1"></a>hs261 <span class="ot">&lt;-</span> <span class="fu">subset</span>(pre.data,</span>
-<span id="cb12-13"><a href="linear-metrics-by-site.html#cb12-13" aria-hidden="true" tabindex="-1"></a>                site <span class="sc">==</span> <span class="st">&quot;41HS261&quot;</span>,</span>
-<span id="cb12-14"><a href="linear-metrics-by-site.html#cb12-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">select =</span> spec<span class="sc">:</span>thickness)</span>
-<span id="cb12-15"><a href="linear-metrics-by-site.html#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="linear-metrics-by-site.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="do">## histogram of max length</span></span>
-<span id="cb12-17"><a href="linear-metrics-by-site.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(hs261<span class="sc">$</span>length)</span></code></pre></div>
+<span id="cb12-13"><a href="linear-metrics-by-site.html#cb12-13" aria-hidden="true" tabindex="-1"></a>                site <span class="sc">==</span> <span class="st">&quot;41HS261&quot;</span>)</span>
+<span id="cb12-14"><a href="linear-metrics-by-site.html#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="linear-metrics-by-site.html#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## histogram of max length</span></span>
+<span id="cb12-16"><a href="linear-metrics-by-site.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(hs261<span class="sc">$</span>length)</span></code></pre></div>
 <p><img src="supp_files/figure-html/setwd%20ld%20define%20variables%203-1.png" width="672" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-metrics-by-site.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean length</span></span>
 <span id="cb13-2"><a href="linear-metrics-by-site.html#cb13-2" aria-hidden="true" tabindex="-1"></a>meanl <span class="ot">&lt;-</span> <span class="fu">mean</span>(hs261<span class="sc">$</span>length)</span>
@@ -264,11 +263,10 @@ div.csl-indent {
 <span id="cb13-11"><a href="linear-metrics-by-site.html#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-12"><a href="linear-metrics-by-site.html#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># an13 subset----</span></span>
 <span id="cb13-13"><a href="linear-metrics-by-site.html#cb13-13" aria-hidden="true" tabindex="-1"></a>an13 <span class="ot">&lt;-</span> <span class="fu">subset</span>(pre.data,</span>
-<span id="cb13-14"><a href="linear-metrics-by-site.html#cb13-14" aria-hidden="true" tabindex="-1"></a>               site <span class="sc">==</span> <span class="st">&quot;41AN13&quot;</span>,</span>
-<span id="cb13-15"><a href="linear-metrics-by-site.html#cb13-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">select =</span> spec<span class="sc">:</span>thickness)</span>
-<span id="cb13-16"><a href="linear-metrics-by-site.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="linear-metrics-by-site.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="do">## histogram of max length</span></span>
-<span id="cb13-18"><a href="linear-metrics-by-site.html#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(an13<span class="sc">$</span>length)</span></code></pre></div>
+<span id="cb13-14"><a href="linear-metrics-by-site.html#cb13-14" aria-hidden="true" tabindex="-1"></a>               site <span class="sc">==</span> <span class="st">&quot;41AN13&quot;</span>)</span>
+<span id="cb13-15"><a href="linear-metrics-by-site.html#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="linear-metrics-by-site.html#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="do">## histogram of max length</span></span>
+<span id="cb13-17"><a href="linear-metrics-by-site.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(an13<span class="sc">$</span>length)</span></code></pre></div>
 <p><img src="supp_files/figure-html/setwd%20ld%20define%20variables%203-2.png" width="672" /></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-metrics-by-site.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean length</span></span>
 <span id="cb14-2"><a href="linear-metrics-by-site.html#cb14-2" aria-hidden="true" tabindex="-1"></a>meanl <span class="ot">&lt;-</span> <span class="fu">mean</span>(an13<span class="sc">$</span>length)</span>
