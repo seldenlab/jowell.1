@@ -84,5 +84,5 @@ qdata2 <- mx %>%
   unite("merged", site, size, remove = FALSE)
 
 # output csv for use in gm analysis
-write.csv(qdata2, "qdata.merged.csv", row.names = FALSE)
+write.csv(qdata2, "qdata.merged.csv")
 ```

@@ -25,11 +25,11 @@ knitr::include_graphics('./images/map.png')
 
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.3 [@R] using the `geomorph` library v. 4.0.3 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
-  -   Bifaces in the _large size class_ recovered from the Millsap Cache and Jowell Farm do not differ in size
-  -   Bifaces in the _small size class_ recovered from the Millsap Cache and Jowell Farm **differ significantly** in size
-  -   Morphological disparity is **significantly greater** for the _large size class_ from the Millsap cache, suggesting greater diversity in size associated with production/manufacture
+  -   Bifaces in the _large size class_ recovered from the Millsap Cache and Jowell Farm do not differ in size. Thus, both shape and size were consistent among the large size class, suggesting that production standardization.
+  -   Bifaces in the _small size class_ recovered from the Millsap Cache and Jowell Farm **differ significantly** in size. Thus, while shape remains consistent, size differs, suggesting---at minimum---local approaches to retouch and/or resharpening.
+  -   Morphological disparity of the _large size class_ is **significantly greater** than the _small size class_ at the Millsap Cache. This suggests greater diversity in size associated with production/manufacture, rather than retouch and/or resharpening.
 
-Principal components analysis [@RN1746] was used to visualise shape variation among the Perdiz arrow points. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479].
+Principal components analysis [@RN1746] was used to visualise shape variation among the elliptical bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479].
 
 ```{r figjowellpca, fig.cap="PCA of shape variables for elogated ovate bifaces."}
 knitr::include_graphics('./images/pca.png')

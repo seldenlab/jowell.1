@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="geometric-morphometrics.html"/>
+<link rel="next" href="gm---siteraw-material.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -172,14 +172,22 @@ div.csl-indent {
 <li class="chapter" data-level="1.2" data-path="define-size-classes.html"><a href="define-size-classes.html#generalised-procrustes-analysis"><i class="fa fa-check"></i><b>1.2</b> Generalised Procrustes Analysis</a></li>
 <li class="chapter" data-level="1.3" data-path="define-size-classes.html"><a href="define-size-classes.html#assign-size-class"><i class="fa fa-check"></i><b>1.3</b> Assign size class</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html"><i class="fa fa-check"></i><b>2</b> Geometric morphometrics</a>
+<li class="chapter" data-level="2" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html"><i class="fa fa-check"></i><b>2</b> GM - Site/Raw Material</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#load-packages-data-1"><i class="fa fa-check"></i><b>2.1</b> Load packages + data</a></li>
-<li class="chapter" data-level="2.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#generalised-procrustes-analysis-1"><i class="fa fa-check"></i><b>2.2</b> Generalised Procrustes Analysis</a></li>
-<li class="chapter" data-level="2.3" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#principal-components-analysis"><i class="fa fa-check"></i><b>2.3</b> Principal Components Analysis</a></li>
-<li class="chapter" data-level="2.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#procrustes-anova"><i class="fa fa-check"></i><b>2.4</b> Procrustes ANOVA</a></li>
-<li class="chapter" data-level="2.5" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#trajectory-analysis"><i class="fa fa-check"></i><b>2.5</b> Trajectory analysis</a></li>
-<li class="chapter" data-level="2.6" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#morphological-disparity"><i class="fa fa-check"></i><b>2.6</b> Morphological Disparity</a></li>
+<li class="chapter" data-level="2.1" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html#load-packages-data-1"><i class="fa fa-check"></i><b>2.1</b> Load packages + data</a></li>
+<li class="chapter" data-level="2.2" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html#generalised-procrustes-analysis-1"><i class="fa fa-check"></i><b>2.2</b> Generalised Procrustes Analysis</a></li>
+<li class="chapter" data-level="2.3" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html#principal-components-analysis"><i class="fa fa-check"></i><b>2.3</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="2.4" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html#procrustes-anova"><i class="fa fa-check"></i><b>2.4</b> Procrustes ANOVA</a></li>
+<li class="chapter" data-level="2.5" data-path="gm---siteraw-material.html"><a href="gm---siteraw-material.html#morphological-disparity"><i class="fa fa-check"></i><b>2.5</b> Morphological Disparity</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="gm---size-class.html"><a href="gm---size-class.html"><i class="fa fa-check"></i><b>3</b> GM - Size Class</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="gm---size-class.html"><a href="gm---size-class.html#load-packages-data-2"><i class="fa fa-check"></i><b>3.1</b> Load packages + data</a></li>
+<li class="chapter" data-level="3.2" data-path="gm---size-class.html"><a href="gm---size-class.html#generalised-procrustes-analysis-2"><i class="fa fa-check"></i><b>3.2</b> Generalised Procrustes Analysis</a></li>
+<li class="chapter" data-level="3.3" data-path="gm---size-class.html"><a href="gm---size-class.html#principal-components-analysis-1"><i class="fa fa-check"></i><b>3.3</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="3.4" data-path="gm---size-class.html"><a href="gm---size-class.html#procrustes-anova-1"><i class="fa fa-check"></i><b>3.4</b> Procrustes ANOVA</a></li>
+<li class="chapter" data-level="3.5" data-path="gm---size-class.html"><a href="gm---size-class.html#trajectory-analysis"><i class="fa fa-check"></i><b>3.5</b> Trajectory analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="gm---size-class.html"><a href="gm---size-class.html#morphological-disparity-1"><i class="fa fa-check"></i><b>3.6</b> Morphological Disparity</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -282,7 +290,7 @@ div.csl-indent {
 <span id="cb10-40"><a href="define-size-classes.html#cb10-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">&quot;merged&quot;</span>, site, size, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb10-41"><a href="define-size-classes.html#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-42"><a href="define-size-classes.html#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="co"># output csv for use in gm analysis</span></span>
-<span id="cb10-43"><a href="define-size-classes.html#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(qdata2, <span class="st">&quot;qdata.merged.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<span id="cb10-43"><a href="define-size-classes.html#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(qdata2, <span class="st">&quot;qdata.merged.csv&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -325,7 +333,7 @@ Slice, Dennis E. 2001. <span>“<span class="nocase">Landmark Coordinates Aligne
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="geometric-morphometrics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="gm---siteraw-material.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

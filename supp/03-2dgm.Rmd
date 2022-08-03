@@ -1,4 +1,4 @@
-# Geometric morphometrics
+# GM - Size Class
 
 Two `size classes` (large/small) were used to examine whether the morphology of the elliptical bifaces from the Millsap Cache and Jowell Farm remain morphologically stable, or express morphological variation. Variability in elliptical biface morphology potentially provides evidence associated with differential resharpening trajectories.
 
@@ -37,6 +37,7 @@ Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
                            size = Y.gpa$Csize,
                            site = qdata$site,
+                           size.class = qdata$size,
                            merged = qdata$merged)
 
 
@@ -76,12 +77,22 @@ To assess whether shape and size differ by `size class`, Procrustes ANOVAs [@RN1
 
 ```{r anova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA ----
+# shape
+fit.sh <- procD.lm(shape ~ merged,
+                   data = gdf,
+                   print.progress = FALSE,
+                   iter = 9999)
+
+# shape as a function of size class?
+anova(fit.sh)
+
 # size
 fit.sz <- procD.lm(size ~ merged,
                    data = gdf,
                    print.progress = FALSE,
                    iter = 9999)
 
+# size as a function of size class?
 anova(fit.sz)
 
 # pairwise comparison of LS means = which differ?
@@ -90,14 +101,6 @@ pw.sz <- pairwise(fit.sz,
 summary(pw.sz, 
         confidence = 0.95, 
         test.type = "dist")
-
-# shape
-fit.sh <- procD.lm(shape ~ merged,
-                   data = gdf,
-                   print.progress = FALSE,
-                   iter = 9999)
-
-anova(fit.sh)
 ```
 
 ## Trajectory analysis
