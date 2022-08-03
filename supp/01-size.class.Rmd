@@ -1,0 +1,88 @@
+# Define size classes
+
+## Load packages + data
+
+```{r load.packages.szclass, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# load required analysis packages
+library(here)
+library(StereoMorph)
+library(geomorph)
+library(tidyverse)
+library(wesanderson)
+library(ggplot2)
+
+# read data and define number of sLMs ----
+shapes <- readShapes("shapes")
+shapesGM <- readland.shapes(shapes, nCurvePts = c(75, 75))
+
+# read qualitative data
+qdata <- read.csv("qdata.csv", 
+                  header = TRUE, 
+                  row.names = 1)
+```
+
+## Generalised Procrustes Analysis
+
+Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.3 [@R] using the `geomorph` library v. 4.0.3 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
+
+```{r outlines.szclass, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# gpa ----
+Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+
+# geomorph data frame ----
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
+                           size = Y.gpa$Csize,
+                           site = qdata$site)
+
+
+# add centroid size to qdata
+qdata$csz <- Y.gpa$Csize
+```
+
+## Assign size class
+
+```{r setwd.szclass ld define variables 3, echo=TRUE, eval = FALSE}
+#select vars
+pre.data <- qdata %>% 
+  select(site:csz)
+
+# millsap subset----
+millsap <- filter(pre.data,
+                  site == "Millsap")
+
+# calculate mean centroid size
+mean.csz <- mean(millsap$csz)
+
+# assign L/S varieties based on mean centroid size
+lcheck2 <- millsap$csz >= mean.csz
+lcheck3 <- millsap$csz >= 0 & millsap$csz < mean.csz
+
+millsap$size <- ""
+millsap$size <- ifelse(lcheck2, "L", millsap$size)
+millsap$size <- ifelse(lcheck3, "S", millsap$size)
+
+# an13 subset----
+an13 <- subset(pre.data,
+               site == "AN13")
+
+# calculate the mean length
+mean.csz <- mean(an13$csz)
+
+# assign L/S varieties based on mean length
+lcheck2 <- an13$csz >= mean.csz
+lcheck3 <- an13$csz >= 0 & an13$csz < mean.csz
+
+an13$size <- ""
+an13$size <- ifelse(lcheck2, "L", an13$size)
+an13$size <- ifelse(lcheck3, "S", an13$size)
+
+# aggregate data
+mx <- bind_rows(millsap, an13)
+
+# join site and size class
+qdata2 <- mx %>% 
+  unite("merged", site, size, remove = FALSE)
+
+# output csv for use in gm analysis
+write.csv(qdata2, "qdata.merged.csv", row.names = FALSE)
+```

@@ -1,5 +1,5 @@
 --- 
-title: "Caddo retouch results in convergent morphology for Jowell knives from sites in the American Southeast"
+title: "Caddo retouch results in divergent morphology for elliptical bifaces from sites in the American Southeast"
 author:
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu], and John E. Dockall^[Stantec, Inc.]
 date: "`r Sys.Date()`"
@@ -8,72 +8,52 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Pilot study of Jowell knife morphology."
+description: "Pilot study of biface morphology."
 ---
 
 # Preface {-}
 
 >Reproducibility---the ability to recompute results---and replicability---the chances other experimenters will achieve a consistent result---are two foundational characteristics of successful scientific research [@RN20918].
 
-Jowell knives from 41AN13 and 41HS261 comprise the two largest samples of this ill-understood lithic type from the ancestral Caddo area. Similar to Gahagan bifaces, all are assumed to have been manufactured using Edwards chert---primarily due to their size, the color that they fluoresce beneath a blacklight, and the paucity of similarly large locally-available raw material sources---and acquired by the Caddo through trade with central Texas groups. Due to the very real possibility that these knives incorporate unique knapping signatures from two or more discrete culture areas, the sample from each site was divided into two size classes; one reflective of Caddo selection/preference (longer), and the other associated with Caddo resharpening and/or retouch (shorter). The size classes were used to assess whether modifications by Caddo knappers may have yielded a similar---convergent---knife shape in the smaller size class, and to test the hypothesis that greater shape variation would also be apparent in the smaller size class due to wear associated with regular use, paired with variable idiosyncracies related to resharpening and/or retouch. The large and small size classes were found to be significantly thicker at 41HS261, suggesting a local preference for thicker knives. While the shape of Jowell knives from the large size class differed significantly between sites, the small size class did not, advancing the argument for convergent morphology. In contrast to the expectation that greater shape diversity would articulate with Caddo resharpening and/or retouch practices, significant diversity in shape was instead found to articulate with Caddo selection/preference.
+Elliptical bifaces from the Millsap Cache and Jowell Farm (41AN13) comprise two of the largest samples of this ill-understood lithic type from the ancestral Caddo area. Similar to Gahagan bifaces, the bifaces from Jowell Farm are assumed to have been manufactured using Edwards chert---primarily due to their size, the colour that they fluoresce beneath a blacklight, and the paucity of similarly large locally-available raw material sources---and acquired by the Caddo through trade with central Texas groups. Those from the Millsap Cache are thought to have been manufactured from Kay County flint. Due to the very real possibility that these knives incorporate unique knapping signatures, the sample from each site was divided into two size classes; one reflective of initial production/manufacture (longer), and the other associated with resharpening and/or retouch (shorter). The size classes were used to assess whether modifications by Caddo knappers may have yielded a similar---convergent---knife shape in the smaller size class, and to test the hypothesis that greater morphological variation would be apparent in the smaller size class due to wear associated with regular use, paired with variable idiosyncracies related to resharpening and/or retouch. Biface size associated with the large size class does not differ between sites; however, the small size class does, advancing an argument for divergent morphology. In alignment with expectations, greater shape diversity was found to articulate with production/manufacturing practices in the Millsap Cache bifaces; however the same was not true at Jowell Farm. Discrete biogeographical ranges in conjunction with raw material differences are posited as potential drivers of extant morphological differences among elliptical bifaces.
 
-```{r figjowellmap, fig.cap="Location of 41AN13 and 41HS261 in the ancestral Caddo area (in white) of the American Southeast."}
-knitr::include_graphics('./images/jowell.map.png')
-```
-
-```{r figjowellmorph, fig.cap="Illustration of Jowell knives from 41AN13 and 41HS261, ordered by length."}
-knitr::include_graphics('./images/jowell.illustration.png')
+```{r figjowellmap, fig.cap="Geological map illustrating the location of the Millsap Cache and Jowell Farm in the American Southeast."}
+knitr::include_graphics('./images/map.png')
 ```
 
 ## Primary findings
 
+Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.1.3 [@R] using the `geomorph` library v. 4.0.3 [@RN11530;@RN1774;@RN9565]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
+  -   Bifaces in the _large size class_ recovered from the Millsap Cache and Jowell Farm do not differ in size
+  -   Bifaces in the _small size class_ recovered from the Millsap Cache and Jowell Farm **differ significantly** in size
+  -   Morphological disparity is **significantly greater** for the _large size class_ from the Millsap cache, suggesting greater diversity in size associated with production/manufacture
 
-### Linear metrics
+Principal components analysis [@RN1746] was used to visualise shape variation among the Perdiz arrow points. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479].
 
-Linear metrics were used to assess differences in width and thickness within and between size classes. Since maximum length was used to parse the sample, it was omitted from the ANOVAs.
-
- -    Large Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
- -    Small Jowell knives from 41AN13 and 41HS261 **differ significantly** in thickness
- 
-Thus, while thickness differs for size classes between sites, it does not differ between the large and small size classes within sites. This result supports the interpretation that the Caddo from 41HS261 preferred a thicker knife; at least, insofar as they appear to have been selecting for---and maintaining---a product that was significantly thicker.
-
-```{r figjowellpcalinear, fig.cap="PCA of linear measures for Jowell knives from 41AN13_L/S and 41HS261_L/S."}
-knitr::include_graphics('./images/pcalinear.png')
-```
-
-```{r figjowellbox, fig.cap="Boxplots for linear measurements associated with Jowell knives from 41AN13 and 41HS261."}
-knitr::include_graphics('./images/boxplot.png')
-```
-
-### Geometric morphometrics
-
-Geometric morphometrics was used to assess differences in size and shape within and between size classes.
-
-  -   Jowell knives recovered at 41AN13 and 41HS261 **differ significantly in shape** at their larger size
-  -   Morphological disparity is **significantly greater** in the _large size class_ at 41AN13
-  
-The shape of Jowell knives differs significantly at their _larger size_, but not at their _smaller size_, supporting the argument for convergent morphology through Caddo resharpening and/or retouch.  While not significant, the graphic associated with the phenotypic trajectory analysis also illustrates morphological convergence. Results for the analysis of morphological disparity demonstrate the inverse of what was expected, supporting the interpretation that greater shape diversity is associated with Caddo selection/preference, instead of Caddo resharpening and/or retouch practices.
-
-```{r figjowellpca, fig.cap="PCA of shape variables for Jowell knives from 41AN13_L/S and 41HS261_L/S."}
+```{r figjowellpca, fig.cap="PCA of shape variables for elogated ovate bifaces."}
 knitr::include_graphics('./images/pca.png')
 ```
 
-```{r figjowellmshape, fig.cap="Resharpening trajectories do not differ, and illustrate convergent morphology as Jowell knives express greater morphological similarity following resharpening and/or retouch by Caddo knappers."}
+A phenotypic trajectory analysis [@RN8344;@RN8550;@RN8569;@RN8533;@RN8446] was used to assess whether reduction/retouch trajectories differ between the sites. The trajectory analysis was followed by an analysis of morphological disparity [@RN11107;@RN7041;@RN5694] to identify potential differences in morphological diversity between size classes.
+
+```{r figjowellmshape, fig.cap="Resharpening trajectories do not differ, but illustrate divergent morphology. In this case, greater morphological similarity is evident in the larger size class, and morphological differences increase following resharpening and/or retouch by Caddo knappers."}
 knitr::include_graphics('./images/trajectory.png')
 ```
 
+The shape of the bifaces does not differ significantly in either size class; however, size does. While not rising to the level of significance, the graphic associated with the phenotypic trajectory analysis illustrates morphological divergence. Results for the analysis of morphological disparity yielded support for the interpretation that greater morphological diversity is associated with production, instead of resharpening and/or retouch practices. As the bifaces are reworked to meet the variable needs of Caddo users, their morphology diverges. This finding supports the working hypothesis that the bifaces may have been used for different tasks.
+
 ## Acknowledgments
 
-My thanks to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for permission and access to NAGPRA and previously repatriated collections. My gratitude is also extended to Julian A. Sitters and Timothy K. Perttula for providing the linear measurements and images from their documentation effort. Thanks also to John Harman for access to the DStretch plugin for ImageJ that was useful in the analysis of flake scars, and to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the analyses of Caddo biface morphology, and to Emma Sherratt, Kersten Bergstrom, Dean C. Adams, and Michael L. Collyer for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
+Our thanks to the Caddo Nation of Oklahoma, the Caddo Nation Tribal Council, Tribal Chairman, and Tribal Historic Preservation Office for permission and access to NAGPRA and previously repatriated collections. Our gratitude is also extended to Marybeth Tomka and Lauren Bussiere at the Texas Archeological Research Laboratory for their assistance with access to the bifaces and the associated records, and to Scott Hammerstedt at the Oklahoma Archeological Survey for his assistance with records requests. Thanks also to John Harman for access to the DStretch plugin for ImageJ that was useful in the analysis of flake scars, and to Harry J. Shafer, Hiram F. (Pete) Gregory, Christian S. Hoggard, and David K. Thulman for their comments and constructive criticisms on the ongoing analyses of Caddo biface morphology, and to Emma Sherratt, Kersten Bergstrom, Dean C. Adams, and Michael L. Collyer for their constructive criticisms, general comments, and suggestions throughout the development of this research program.
 
 ## Funding
 
-Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to analyse the Jowell knives from 41AN13 and 41HS261 was provided by the Heritage Research Center at Stephen F. Austin State University.
+Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training (NCPTT), and additional grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074). Funding to analyse the bifaces from the Millsap Cache and Jowell Farm was provided by the Heritage Research Center at Stephen F. Austin State University.
 
 ## Data management
 
-The analysis code associated with this project can be accessed through this document, is available in the GitHub repository, and is digitally curated on the Open Science Framework. The reproducible nature of this enterprise provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+The analysis code associated with this project can be accessed through this document, is available in the GitHub repository, and digitally curated on the Open Science Framework. The reproducible nature of this enterprise provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
 Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN11783;@RN21001;@RN9364], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 
