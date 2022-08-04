@@ -1,6 +1,6 @@
 # GM - Site/Raw Material
 
-Elliptical bifaces from the Millsap Cache and Jowell Farm were used to examine whether their morhpology remains morphologically stable, or expresses morphological variability by site/raw meterial. Variability in elliptical biface morphology provides evidence associated with differences in morphology as a function of geography/raw material.
+Elliptical bifaces from the Millsap Cache and Jowell Farm were used to examine whether their morphology remains stable, or expresses morphological variability by site/raw meterial. Variability in elliptical biface morphology provides evidence associated with differences in morphology as a function of geography/raw material.
 
 This analysis follows recent analyses of Perdiz arrow points ([Selden and Dockall, in review](https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf)) and Gahagan biface morphology across the southern Caddo area and central Texas [@RN11783;@RN21001;@RN11264], where Perdiz arrow points and Gahagan bifaces have been found to differ in shape across the same geography as Caddo bottles [@RN11801;@RN11782;@RN11716;@RN8312]. This analysis also follows another geometric morphometric analysis in which Perdiz arrow points from the ancestral Caddo area were found to differ as a function of _time_, _raw material_, and _burial context_ [@RN9551].
 
@@ -17,7 +17,7 @@ library(ggplot2)
 
 # read data and define number of sLMs ----
 shapes <- readShapes("shapes")
-shapesGM <- readland.shapes(shapes, nCurvePts = c(75, 75))
+shapesGM <- readland.shapes(shapes, nCurvePts = c(15, 30, 45))
 
 # read qualitative data
 qdata <- read.csv("qdata.merged.csv", 

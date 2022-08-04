@@ -13,7 +13,7 @@ library(ggplot2)
 
 # read data and define number of sLMs ----
 shapes <- readShapes("shapes")
-shapesGM <- readland.shapes(shapes, nCurvePts = c(75, 75))
+shapesGM <- readland.shapes(shapes, nCurvePts = c(15, 30, 45))
 
 # read qualitative data
 qdata <- read.csv("qdata.csv", 
@@ -28,6 +28,8 @@ Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN1
 ```{r outlines.szclass, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # gpa ----
 Y.gpa <- gpagen(shapesGM, print.progress = FALSE)
+
+plot(Y.gpa)
 
 # geomorph data frame ----
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, 

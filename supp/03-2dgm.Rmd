@@ -17,7 +17,7 @@ library(ggplot2)
 
 # read data and define number of sLMs ----
 shapes <- readShapes("shapes")
-shapesGM <- readland.shapes(shapes, nCurvePts = c(75, 75))
+shapesGM <- readland.shapes(shapes, nCurvePts = c(15, 30, 45))
 
 # read qualitative data
 qdata <- read.csv("qdata.merged.csv", 
