@@ -23,7 +23,7 @@
 <meta name="author" content="Robert Z. Selden, Jr., and John E. Dockall" />
 
 
-<meta name="date" content="2022-08-03" />
+<meta name="date" content="2022-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,46 +216,46 @@ div.csl-indent {
 <p>This analysis follows recent analyses of Perdiz arrow points (<a href="https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf">Selden and Dockall, in review</a>) and Gahagan biface morphology across the southern Caddo area and central Texas <span class="citation">(<a href="#ref-RN11783" role="doc-biblioref">Selden Jr., Dockall, and Shafer 2018</a>; <a href="#ref-RN21001" role="doc-biblioref">Selden Jr., Dockall, and Dubied 2020</a>; <a href="#ref-RN11264" role="doc-biblioref">Selden 2022</a>)</span>, where Perdiz arrow points and Gahagan bifaces have been found to differ in shape across the same geography as Caddo bottles <span class="citation">(<a href="#ref-RN11801" role="doc-biblioref">Selden Jr. 2018a</a>, <a href="#ref-RN11782" role="doc-biblioref">2018b</a>, <a href="#ref-RN11716" role="doc-biblioref">2019</a>, <a href="#ref-RN8312" role="doc-biblioref">2021</a>)</span>. This analysis also follows another geometric morphometric analysis in which Perdiz arrow points from the ancestral Caddo area were found to differ as a function of <em>time</em>, <em>raw material</em>, and <em>burial context</em> <span class="citation">(<a href="#ref-RN9551" role="doc-biblioref">Selden Jr et al. 2021b</a>)</span>.</p>
 <div id="load-packages-data-2" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Load packages + data<a href="gm---size-class.html#load-packages-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="gm---size-class.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load required analysis packages</span></span>
-<span id="cb24-2"><a href="gm---size-class.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb24-3"><a href="gm---size-class.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(StereoMorph)</span>
-<span id="cb24-4"><a href="gm---size-class.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb24-5"><a href="gm---size-class.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb24-6"><a href="gm---size-class.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb24-7"><a href="gm---size-class.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb24-8"><a href="gm---size-class.html#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="gm---size-class.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read data and define number of sLMs ----</span></span>
-<span id="cb24-10"><a href="gm---size-class.html#cb24-10" aria-hidden="true" tabindex="-1"></a>shapes <span class="ot">&lt;-</span> <span class="fu">readShapes</span>(<span class="st">&quot;shapes&quot;</span>)</span>
-<span id="cb24-11"><a href="gm---size-class.html#cb24-11" aria-hidden="true" tabindex="-1"></a>shapesGM <span class="ot">&lt;-</span> <span class="fu">readland.shapes</span>(shapes, <span class="at">nCurvePts =</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">75</span>))</span>
-<span id="cb24-12"><a href="gm---size-class.html#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-13"><a href="gm---size-class.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb24-14"><a href="gm---size-class.html#cb24-14" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.merged.csv&quot;</span>, </span>
-<span id="cb24-15"><a href="gm---size-class.html#cb24-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb24-16"><a href="gm---size-class.html#cb24-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="gm---size-class.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load required analysis packages</span></span>
+<span id="cb33-2"><a href="gm---size-class.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb33-3"><a href="gm---size-class.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(StereoMorph)</span>
+<span id="cb33-4"><a href="gm---size-class.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb33-5"><a href="gm---size-class.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb33-6"><a href="gm---size-class.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb33-7"><a href="gm---size-class.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-8"><a href="gm---size-class.html#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="gm---size-class.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read data and define number of sLMs ----</span></span>
+<span id="cb33-10"><a href="gm---size-class.html#cb33-10" aria-hidden="true" tabindex="-1"></a>shapes <span class="ot">&lt;-</span> <span class="fu">readShapes</span>(<span class="st">&quot;shapes&quot;</span>)</span>
+<span id="cb33-11"><a href="gm---size-class.html#cb33-11" aria-hidden="true" tabindex="-1"></a>shapesGM <span class="ot">&lt;-</span> <span class="fu">readland.shapes</span>(shapes, <span class="at">nCurvePts =</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">75</span>))</span>
+<span id="cb33-12"><a href="gm---size-class.html#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="gm---size-class.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb33-14"><a href="gm---size-class.html#cb33-14" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.merged.csv&quot;</span>, </span>
+<span id="cb33-15"><a href="gm---size-class.html#cb33-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb33-16"><a href="gm---size-class.html#cb33-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
 </div>
 <div id="generalised-procrustes-analysis-2" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Generalised Procrustes Analysis<a href="gm---size-class.html#generalised-procrustes-analysis-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.3 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2022</a>)</span> using the <code>geomorph</code> library v. 4.0.3 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otarola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="gm---size-class.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gpa ----</span></span>
-<span id="cb25-2"><a href="gm---size-class.html#cb25-2" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(shapesGM, <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb25-3"><a href="gm---size-class.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="gm---size-class.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame ----</span></span>
-<span id="cb25-5"><a href="gm---size-class.html#cb25-5" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
-<span id="cb25-6"><a href="gm---size-class.html#cb25-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb25-7"><a href="gm---size-class.html#cb25-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">site =</span> qdata<span class="sc">$</span>site,</span>
-<span id="cb25-8"><a href="gm---size-class.html#cb25-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size.class =</span> qdata<span class="sc">$</span>size,</span>
-<span id="cb25-9"><a href="gm---size-class.html#cb25-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb25-10"><a href="gm---size-class.html#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="gm---size-class.html#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="gm---size-class.html#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb25-13"><a href="gm---size-class.html#cb25-13" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="gm---size-class.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gpa ----</span></span>
+<span id="cb34-2"><a href="gm---size-class.html#cb34-2" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(shapesGM, <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb34-3"><a href="gm---size-class.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="gm---size-class.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame ----</span></span>
+<span id="cb34-5"><a href="gm---size-class.html#cb34-5" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
+<span id="cb34-6"><a href="gm---size-class.html#cb34-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb34-7"><a href="gm---size-class.html#cb34-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">site =</span> qdata<span class="sc">$</span>site,</span>
+<span id="cb34-8"><a href="gm---size-class.html#cb34-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size.class =</span> qdata<span class="sc">$</span>size,</span>
+<span id="cb34-9"><a href="gm---size-class.html#cb34-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">merged =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb34-10"><a href="gm---size-class.html#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="gm---size-class.html#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="gm---size-class.html#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb34-13"><a href="gm---size-class.html#cb34-13" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span></code></pre></div>
 </div>
 <div id="principal-components-analysis-1" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Principal Components Analysis<a href="gm---size-class.html#principal-components-analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the Perdiz arrow points. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="gm---size-class.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis ----</span></span>
-<span id="cb26-2"><a href="gm---size-class.html#cb26-2" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">&lt;-</span><span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb26-3"><a href="gm---size-class.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="gm---size-class.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis ----</span></span>
+<span id="cb35-2"><a href="gm---size-class.html#cb35-2" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">&lt;-</span><span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb35-3"><a href="gm---size-class.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -264,57 +264,49 @@ div.csl-indent {
 ## Number of vectors 29 
 ## 
 ## Importance of Components:
-##                               Comp1        Comp2        Comp3        Comp4        Comp5
-## Eigenvalues            0.0008497355 0.0004220093 0.0003408303 6.536069e-05 2.677863e-05
-## Proportion of Variance 0.4831142502 0.2399319701 0.1937779309 3.716060e-02 1.522490e-02
-## Cumulative Proportion  0.4831142502 0.7230462202 0.9168241511 9.539847e-01 9.692096e-01
-##                               Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            1.821953e-05 1.256666e-05 7.525419e-06 4.853207e-06 4.233497e-06
-## Proportion of Variance 1.035865e-02 7.144731e-03 4.278551e-03 2.759275e-03 2.406940e-03
-## Cumulative Proportion  9.795683e-01 9.867130e-01 9.909916e-01 9.937509e-01 9.961578e-01
-##                              Comp11       Comp12       Comp13       Comp14       Comp15
-## Eigenvalues            1.650486e-06 1.474448e-06 1.064822e-06 6.037073e-07 5.398387e-07
-## Proportion of Variance 9.383783e-04 8.382926e-04 6.054009e-04 3.432357e-04 3.069235e-04
-## Cumulative Proportion  9.970962e-01 9.979345e-01 9.985399e-01 9.988831e-01 9.991900e-01
-##                              Comp16       Comp17       Comp18       Comp19       Comp20
-## Eigenvalues            3.736349e-07 2.595297e-07 1.715361e-07 1.497939e-07 8.555405e-08
-## Proportion of Variance 2.124289e-04 1.475547e-04 9.752627e-05 8.516481e-05 4.864147e-05
-## Cumulative Proportion  9.994025e-01 9.995500e-01 9.996475e-01 9.997327e-01 9.997813e-01
-##                              Comp21       Comp22       Comp23       Comp24       Comp25
-## Eigenvalues            8.064810e-08 6.168772e-08 5.720117e-08 4.476731e-08 4.047475e-08
-## Proportion of Variance 4.585221e-05 3.507235e-05 3.252153e-05 2.545231e-05 2.301178e-05
-## Cumulative Proportion  9.998272e-01 9.998623e-01 9.998948e-01 9.999202e-01 9.999433e-01
-##                              Comp26       Comp27       Comp28       Comp29
-## Eigenvalues            3.310299e-08 2.659745e-08 2.238423e-08 1.771950e-08
-## Proportion of Variance 1.882059e-05 1.512189e-05 1.272648e-05 1.007436e-05
-## Cumulative Proportion  9.999621e-01 9.999772e-01 9.999899e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="gm---size-class.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
-<span id="cb28-2"><a href="gm---size-class.html#cb28-2" aria-hidden="true" tabindex="-1"></a>pch.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>merged)]</span>
-<span id="cb28-3"><a href="gm---size-class.html#cb28-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>merged)]</span>
-<span id="cb28-4"><a href="gm---size-class.html#cb28-4" aria-hidden="true" tabindex="-1"></a>col.hull <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#CCC591&quot;</span>, <span class="st">&quot;#29211F&quot;</span>, <span class="st">&quot;#798E87&quot;</span>, <span class="st">&quot;#C27D38&quot;</span>)</span>
-<span id="cb28-5"><a href="gm---size-class.html#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="gm---size-class.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pca by merged</span></span>
-<span id="cb28-7"><a href="gm---size-class.html#cb28-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, </span>
-<span id="cb28-8"><a href="gm---size-class.html#cb28-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb28-9"><a href="gm---size-class.html#cb28-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>
-<span id="cb28-10"><a href="gm---size-class.html#cb28-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps)</span>
-<span id="cb28-11"><a href="gm---size-class.html#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot, </span>
-<span id="cb28-12"><a href="gm---size-class.html#cb28-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> qdata<span class="sc">$</span>merged,</span>
-<span id="cb28-13"><a href="gm---size-class.html#cb28-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull)</span></code></pre></div>
+##                               Comp1        Comp2        Comp3        Comp4        Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.0008497355 0.0004220093 0.0003408303 6.536069e-05 2.677863e-05 1.821953e-05 1.256666e-05 7.525419e-06
+## Proportion of Variance 0.4831142502 0.2399319701 0.1937779309 3.716060e-02 1.522490e-02 1.035865e-02 7.144731e-03 4.278551e-03
+## Cumulative Proportion  0.4831142502 0.7230462202 0.9168241511 9.539847e-01 9.692096e-01 9.795683e-01 9.867130e-01 9.909916e-01
+##                               Comp9       Comp10       Comp11       Comp12       Comp13       Comp14       Comp15       Comp16
+## Eigenvalues            4.853207e-06 4.233497e-06 1.650486e-06 1.474448e-06 1.064822e-06 6.037073e-07 5.398387e-07 3.736349e-07
+## Proportion of Variance 2.759275e-03 2.406940e-03 9.383783e-04 8.382926e-04 6.054009e-04 3.432357e-04 3.069235e-04 2.124289e-04
+## Cumulative Proportion  9.937509e-01 9.961578e-01 9.970962e-01 9.979345e-01 9.985399e-01 9.988831e-01 9.991900e-01 9.994025e-01
+##                              Comp17       Comp18       Comp19       Comp20       Comp21       Comp22       Comp23       Comp24
+## Eigenvalues            2.595297e-07 1.715361e-07 1.497939e-07 8.555405e-08 8.064810e-08 6.168772e-08 5.720117e-08 4.476731e-08
+## Proportion of Variance 1.475547e-04 9.752627e-05 8.516481e-05 4.864147e-05 4.585221e-05 3.507235e-05 3.252153e-05 2.545231e-05
+## Cumulative Proportion  9.995500e-01 9.996475e-01 9.997327e-01 9.997813e-01 9.998272e-01 9.998623e-01 9.998948e-01 9.999202e-01
+##                              Comp25       Comp26       Comp27       Comp28       Comp29
+## Eigenvalues            4.047475e-08 3.310299e-08 2.659745e-08 2.238423e-08 1.771950e-08
+## Proportion of Variance 2.301178e-05 1.882059e-05 1.512189e-05 1.272648e-05 1.007436e-05
+## Cumulative Proportion  9.999433e-01 9.999621e-01 9.999772e-01 9.999899e-01 1.000000e+00</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="gm---size-class.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
+<span id="cb37-2"><a href="gm---size-class.html#cb37-2" aria-hidden="true" tabindex="-1"></a>pch.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>merged)]</span>
+<span id="cb37-3"><a href="gm---size-class.html#cb37-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>merged)]</span>
+<span id="cb37-4"><a href="gm---size-class.html#cb37-4" aria-hidden="true" tabindex="-1"></a>col.hull <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#CCC591&quot;</span>, <span class="st">&quot;#29211F&quot;</span>, <span class="st">&quot;#798E87&quot;</span>, <span class="st">&quot;#C27D38&quot;</span>)</span>
+<span id="cb37-5"><a href="gm---size-class.html#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="gm---size-class.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pca by merged</span></span>
+<span id="cb37-7"><a href="gm---size-class.html#cb37-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, </span>
+<span id="cb37-8"><a href="gm---size-class.html#cb37-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb37-9"><a href="gm---size-class.html#cb37-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>
+<span id="cb37-10"><a href="gm---size-class.html#cb37-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps)</span>
+<span id="cb37-11"><a href="gm---size-class.html#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot, </span>
+<span id="cb37-12"><a href="gm---size-class.html#cb37-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> qdata<span class="sc">$</span>merged,</span>
+<span id="cb37-13"><a href="gm---size-class.html#cb37-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plot-1.png" width="100%" /></p>
 </div>
 <div id="procrustes-anova-1" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Procrustes ANOVA<a href="gm---size-class.html#procrustes-anova-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To assess whether shape and size differ by <code>size class</code>, Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>. A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">M. L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="gm---size-class.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA ----</span></span>
-<span id="cb29-2"><a href="gm---size-class.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shape</span></span>
-<span id="cb29-3"><a href="gm---size-class.html#cb29-3" aria-hidden="true" tabindex="-1"></a>fit.sh <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
-<span id="cb29-4"><a href="gm---size-class.html#cb29-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
-<span id="cb29-5"><a href="gm---size-class.html#cb29-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb29-6"><a href="gm---size-class.html#cb29-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb29-7"><a href="gm---size-class.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="gm---size-class.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of size class?</span></span>
-<span id="cb29-9"><a href="gm---size-class.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sh)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="gm---size-class.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA ----</span></span>
+<span id="cb38-2"><a href="gm---size-class.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shape</span></span>
+<span id="cb38-3"><a href="gm---size-class.html#cb38-3" aria-hidden="true" tabindex="-1"></a>fit.sh <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> merged,</span>
+<span id="cb38-4"><a href="gm---size-class.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
+<span id="cb38-5"><a href="gm---size-class.html#cb38-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb38-6"><a href="gm---size-class.html#cb38-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb38-7"><a href="gm---size-class.html#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="gm---size-class.html#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of size class?</span></span>
+<span id="cb38-9"><a href="gm---size-class.html#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sh)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -329,14 +321,14 @@ div.csl-indent {
 ## Total     29 0.051007                                         
 ## 
 ## Call: procD.lm(f1 = shape ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="gm---size-class.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size</span></span>
-<span id="cb31-2"><a href="gm---size-class.html#cb31-2" aria-hidden="true" tabindex="-1"></a>fit.sz <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
-<span id="cb31-3"><a href="gm---size-class.html#cb31-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
-<span id="cb31-4"><a href="gm---size-class.html#cb31-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb31-5"><a href="gm---size-class.html#cb31-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb31-6"><a href="gm---size-class.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="gm---size-class.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of size class?</span></span>
-<span id="cb31-8"><a href="gm---size-class.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sz)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="gm---size-class.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size</span></span>
+<span id="cb40-2"><a href="gm---size-class.html#cb40-2" aria-hidden="true" tabindex="-1"></a>fit.sz <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> merged,</span>
+<span id="cb40-3"><a href="gm---size-class.html#cb40-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
+<span id="cb40-4"><a href="gm---size-class.html#cb40-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb40-5"><a href="gm---size-class.html#cb40-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb40-6"><a href="gm---size-class.html#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="gm---size-class.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of size class?</span></span>
+<span id="cb40-8"><a href="gm---size-class.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sz)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -353,12 +345,12 @@ div.csl-indent {
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = size ~ merged, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="gm---size-class.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb33-2"><a href="gm---size-class.html#cb33-2" aria-hidden="true" tabindex="-1"></a>pw.sz <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sz,</span>
-<span id="cb33-3"><a href="gm---size-class.html#cb33-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
-<span id="cb33-4"><a href="gm---size-class.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pw.sz, </span>
-<span id="cb33-5"><a href="gm---size-class.html#cb33-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
-<span id="cb33-6"><a href="gm---size-class.html#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="gm---size-class.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb42-2"><a href="gm---size-class.html#cb42-2" aria-hidden="true" tabindex="-1"></a>pw.sz <span class="ot">&lt;-</span> <span class="fu">pairwise</span>(fit.sz,</span>
+<span id="cb42-3"><a href="gm---size-class.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged)</span>
+<span id="cb42-4"><a href="gm---size-class.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pw.sz, </span>
+<span id="cb42-5"><a href="gm---size-class.html#cb42-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">confidence =</span> <span class="fl">0.95</span>, </span>
+<span id="cb42-6"><a href="gm---size-class.html#cb42-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -381,15 +373,15 @@ div.csl-indent {
 <div id="trajectory-analysis" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Trajectory analysis<a href="gm---size-class.html#trajectory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A phenotypic trajectory analysis <span class="citation">(<a href="#ref-RN8344" role="doc-biblioref">Adams and Collyer 2007</a>, <a href="#ref-RN8550" role="doc-biblioref">2009</a>; <a href="#ref-RN8569" role="doc-biblioref">M. L. Collyer and Adams 2007</a>, <a href="#ref-RN8533" role="doc-biblioref">2013</a>; <a href="#ref-RN8446" role="doc-biblioref">Michael. L. Collyer, Sekora, and Adams 2015</a>)</span> was used to assess whether reduction/retouch trajectories differ between the sites.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="gm---size-class.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># trajectory analysis::shape</span></span>
-<span id="cb35-2"><a href="gm---size-class.html#cb35-2" aria-hidden="true" tabindex="-1"></a>TA <span class="ot">&lt;-</span> <span class="fu">trajectory.analysis</span>(fit.sh,</span>
-<span id="cb35-3"><a href="gm---size-class.html#cb35-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
-<span id="cb35-4"><a href="gm---size-class.html#cb35-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">traj.pts =</span> qdata<span class="sc">$</span>size,</span>
-<span id="cb35-5"><a href="gm---size-class.html#cb35-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb35-6"><a href="gm---size-class.html#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="gm---size-class.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># magnitude difference</span></span>
-<span id="cb35-8"><a href="gm---size-class.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(TA, </span>
-<span id="cb35-9"><a href="gm---size-class.html#cb35-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">attribute =</span> <span class="st">&quot;MD&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="gm---size-class.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># trajectory analysis::shape</span></span>
+<span id="cb44-2"><a href="gm---size-class.html#cb44-2" aria-hidden="true" tabindex="-1"></a>TA <span class="ot">&lt;-</span> <span class="fu">trajectory.analysis</span>(fit.sh,</span>
+<span id="cb44-3"><a href="gm---size-class.html#cb44-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
+<span id="cb44-4"><a href="gm---size-class.html#cb44-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">traj.pts =</span> qdata<span class="sc">$</span>size,</span>
+<span id="cb44-5"><a href="gm---size-class.html#cb44-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb44-6"><a href="gm---size-class.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="gm---size-class.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># magnitude difference</span></span>
+<span id="cb44-8"><a href="gm---size-class.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(TA, </span>
+<span id="cb44-9"><a href="gm---size-class.html#cb44-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">attribute =</span> <span class="st">&quot;MD&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Trajectory analysis
 ## 
@@ -408,32 +400,31 @@ div.csl-indent {
 ## Pairwise absolute differences in path distances, plus statistics
 ##                        d  UCL (95%)          Z Pr &gt; d
 ## AN13:Millsap 0.005877592 0.02094446 -0.1351729 0.5637</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="gm---size-class.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb37-2"><a href="gm---size-class.html#cb37-2" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="fu">plot</span>(TA,</span>
-<span id="cb37-3"><a href="gm---size-class.html#cb37-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">pch =</span> <span class="fu">as.numeric</span>(qdata<span class="sc">$</span>site), </span>
-<span id="cb37-4"><a href="gm---size-class.html#cb37-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">bg =</span> <span class="fu">as.numeric</span>(qdata<span class="sc">$</span>size),</span>
-<span id="cb37-5"><a href="gm---size-class.html#cb37-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">cex =</span> <span class="fl">0.3</span>,</span>
-<span id="cb37-6"><a href="gm---size-class.html#cb37-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
-<span id="cb37-7"><a href="gm---size-class.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">add.trajectories</span>(TP, </span>
-<span id="cb37-8"><a href="gm---size-class.html#cb37-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">traj.pch =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">17</span>),</span>
-<span id="cb37-9"><a href="gm---size-class.html#cb37-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">traj.cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="gm---size-class.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb46-2"><a href="gm---size-class.html#cb46-2" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="fu">plot</span>(TA,</span>
+<span id="cb46-3"><a href="gm---size-class.html#cb46-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">pch =</span> <span class="fu">as.numeric</span>(qdata<span class="sc">$</span>site), </span>
+<span id="cb46-4"><a href="gm---size-class.html#cb46-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">bg =</span> <span class="fu">as.numeric</span>(qdata<span class="sc">$</span>size),</span>
+<span id="cb46-5"><a href="gm---size-class.html#cb46-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">cex =</span> <span class="fl">0.3</span>,</span>
+<span id="cb46-6"><a href="gm---size-class.html#cb46-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb46-7"><a href="gm---size-class.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">add.trajectories</span>(TP, </span>
+<span id="cb46-8"><a href="gm---size-class.html#cb46-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">traj.pch =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">17</span>),</span>
+<span id="cb46-9"><a href="gm---size-class.html#cb46-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">traj.cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="supp_files/figure-html/shapetrajectory-1.png" width="100%" /></p>
 </div>
 <div id="morphological-disparity-1" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Morphological Disparity<a href="gm---size-class.html#morphological-disparity-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The trajectory analysis was followed by an analysis of morphological disparity <span class="citation">(<a href="#ref-RN11107" role="doc-biblioref">M. L. Collyer and Adams 2020</a>; <a href="#ref-RN7041" role="doc-biblioref">Foote 1993</a>; <a href="#ref-RN5694" role="doc-biblioref">Zelditch et al. 2004</a>)</span> to identify potential differences in morphological diversity between size classes.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="gm---size-class.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity ----</span></span>
-<span id="cb38-2"><a href="gm---size-class.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater shape variation among </span></span>
-<span id="cb38-3"><a href="gm---size-class.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb38-4"><a href="gm---size-class.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(shape <span class="sc">~</span> merged,</span>
-<span id="cb38-5"><a href="gm---size-class.html#cb38-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
-<span id="cb38-6"><a href="gm---size-class.html#cb38-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb38-7"><a href="gm---size-class.html#cb38-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb38-8"><a href="gm---size-class.html#cb38-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="gm---size-class.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity ----</span></span>
+<span id="cb47-2"><a href="gm---size-class.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater shape variation among </span></span>
+<span id="cb47-3"><a href="gm---size-class.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb47-4"><a href="gm---size-class.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(shape <span class="sc">~</span> merged,</span>
+<span id="cb47-5"><a href="gm---size-class.html#cb47-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
+<span id="cb47-6"><a href="gm---size-class.html#cb47-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb47-7"><a href="gm---size-class.html#cb47-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb47-8"><a href="gm---size-class.html#cb47-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = shape ~ merged, groups = qdata$merged,  
-##     iter = 9999, data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = shape ~ merged, groups = qdata$merged,      iter = 9999, data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -459,17 +450,16 @@ div.csl-indent {
 ## AN13_S    0.3928 1.0000    0.0522    0.3641
 ## Millsap_L 0.3306 0.0522    1.0000    0.2190
 ## Millsap_S 0.9502 0.3641    0.2190    1.0000</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="gm---size-class.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater size variation among </span></span>
-<span id="cb40-2"><a href="gm---size-class.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb40-3"><a href="gm---size-class.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(size <span class="sc">~</span> merged,</span>
-<span id="cb40-4"><a href="gm---size-class.html#cb40-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
-<span id="cb40-5"><a href="gm---size-class.html#cb40-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb40-6"><a href="gm---size-class.html#cb40-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb40-7"><a href="gm---size-class.html#cb40-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="gm---size-class.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater size variation among </span></span>
+<span id="cb49-2"><a href="gm---size-class.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb49-3"><a href="gm---size-class.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(size <span class="sc">~</span> merged,</span>
+<span id="cb49-4"><a href="gm---size-class.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>merged, </span>
+<span id="cb49-5"><a href="gm---size-class.html#cb49-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb49-6"><a href="gm---size-class.html#cb49-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb49-7"><a href="gm---size-class.html#cb49-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = size ~ merged, groups = qdata$merged,  
-##     iter = 9999, data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = size ~ merged, groups = qdata$merged,      iter = 9999, data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
