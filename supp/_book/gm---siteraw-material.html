@@ -216,43 +216,43 @@ div.csl-indent {
 <p>This analysis follows recent analyses of Perdiz arrow points (<a href="https://github.com/seldenlab/perdiz3/blob/main/ms/perdiz3/perdiz3.pdf">Selden and Dockall, in review</a>) and Gahagan biface morphology across the southern Caddo area and central Texas <span class="citation">(<a href="#ref-RN11783" role="doc-biblioref">Selden Jr., Dockall, and Shafer 2018</a>; <a href="#ref-RN21001" role="doc-biblioref">Selden Jr., Dockall, and Dubied 2020</a>; <a href="#ref-RN11264" role="doc-biblioref">Selden 2022</a>)</span>, where Perdiz arrow points and Gahagan bifaces have been found to differ in shape across the same geography as Caddo bottles <span class="citation">(<a href="#ref-RN11801" role="doc-biblioref">Selden Jr. 2018a</a>, <a href="#ref-RN11782" role="doc-biblioref">2018b</a>, <a href="#ref-RN11716" role="doc-biblioref">2019</a>, <a href="#ref-RN8312" role="doc-biblioref">2021</a>)</span>. This analysis also follows another geometric morphometric analysis in which Perdiz arrow points from the ancestral Caddo area were found to differ as a function of <em>time</em>, <em>raw material</em>, and <em>burial context</em> <span class="citation">(<a href="#ref-RN9551" role="doc-biblioref">Selden Jr et al. 2021b</a>)</span>.</p>
 <div id="load-packages-data-1" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Load packages + data<a href="gm---siteraw-material.html#load-packages-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="gm---siteraw-material.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load required analysis packages</span></span>
-<span id="cb12-2"><a href="gm---siteraw-material.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb12-3"><a href="gm---siteraw-material.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(StereoMorph)</span>
-<span id="cb12-4"><a href="gm---siteraw-material.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
-<span id="cb12-5"><a href="gm---siteraw-material.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb12-6"><a href="gm---siteraw-material.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb12-7"><a href="gm---siteraw-material.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-8"><a href="gm---siteraw-material.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="gm---siteraw-material.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read data and define number of sLMs ----</span></span>
-<span id="cb12-10"><a href="gm---siteraw-material.html#cb12-10" aria-hidden="true" tabindex="-1"></a>shapes <span class="ot">&lt;-</span> <span class="fu">readShapes</span>(<span class="st">&quot;shapes&quot;</span>)</span>
-<span id="cb12-11"><a href="gm---siteraw-material.html#cb12-11" aria-hidden="true" tabindex="-1"></a>shapesGM <span class="ot">&lt;-</span> <span class="fu">readland.shapes</span>(shapes, <span class="at">nCurvePts =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>))</span>
-<span id="cb12-12"><a href="gm---siteraw-material.html#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="gm---siteraw-material.html#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
-<span id="cb12-14"><a href="gm---siteraw-material.html#cb12-14" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.merged.csv&quot;</span>, </span>
-<span id="cb12-15"><a href="gm---siteraw-material.html#cb12-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb12-16"><a href="gm---siteraw-material.html#cb12-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="gm---siteraw-material.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load required analysis packages</span></span>
+<span id="cb13-2"><a href="gm---siteraw-material.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb13-3"><a href="gm---siteraw-material.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(StereoMorph)</span>
+<span id="cb13-4"><a href="gm---siteraw-material.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomorph)</span>
+<span id="cb13-5"><a href="gm---siteraw-material.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-6"><a href="gm---siteraw-material.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb13-7"><a href="gm---siteraw-material.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-8"><a href="gm---siteraw-material.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="gm---siteraw-material.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read data and define number of sLMs ----</span></span>
+<span id="cb13-10"><a href="gm---siteraw-material.html#cb13-10" aria-hidden="true" tabindex="-1"></a>shapes <span class="ot">&lt;-</span> <span class="fu">readShapes</span>(<span class="st">&quot;shapes&quot;</span>)</span>
+<span id="cb13-11"><a href="gm---siteraw-material.html#cb13-11" aria-hidden="true" tabindex="-1"></a>shapesGM <span class="ot">&lt;-</span> <span class="fu">readland.shapes</span>(shapes, <span class="at">nCurvePts =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>))</span>
+<span id="cb13-12"><a href="gm---siteraw-material.html#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="gm---siteraw-material.html#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># read qualitative data</span></span>
+<span id="cb13-14"><a href="gm---siteraw-material.html#cb13-14" aria-hidden="true" tabindex="-1"></a>qdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;qdata.merged.csv&quot;</span>, </span>
+<span id="cb13-15"><a href="gm---siteraw-material.html#cb13-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb13-16"><a href="gm---siteraw-material.html#cb13-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
 </div>
 <div id="generalised-procrustes-analysis-1" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Generalised Procrustes Analysis<a href="gm---siteraw-material.html#generalised-procrustes-analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Landmark data were aligned to a global coordinate system <span class="citation">(<a href="#ref-RN11622" role="doc-biblioref">Kendall 1981</a>, <a href="#ref-RN11623" role="doc-biblioref">1984</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>, achieved through generalized Procrustes superimposition <span class="citation">(<a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span> performed in R 4.1.3 <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Development Team, 2022</a>)</span> using the <code>geomorph</code> library v. 4.0.3 <span class="citation">(<a href="#ref-RN11530" role="doc-biblioref">Adams et al. 2017</a>; <a href="#ref-RN1774" role="doc-biblioref">Adams and Otarola-Castillo 2013</a>; <a href="#ref-RN9565" role="doc-biblioref">Baken et al. 2021</a>)</span>. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects <span class="citation">(<a href="#ref-RN11564" role="doc-biblioref">Gower 1975</a>; <a href="#ref-RN478" role="doc-biblioref">Rohlf and Slice 1990</a>)</span>. The <code>geomorph</code> package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space <span class="citation">(<a href="#ref-RN1646" role="doc-biblioref">Rohlf 1999</a>; <a href="#ref-RN11563" role="doc-biblioref">Slice 2001</a>)</span>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="gm---siteraw-material.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gpa ----</span></span>
-<span id="cb13-2"><a href="gm---siteraw-material.html#cb13-2" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(shapesGM, <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb13-3"><a href="gm---siteraw-material.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="gm---siteraw-material.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame ----</span></span>
-<span id="cb13-5"><a href="gm---siteraw-material.html#cb13-5" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
-<span id="cb13-6"><a href="gm---siteraw-material.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
-<span id="cb13-7"><a href="gm---siteraw-material.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">site =</span> qdata<span class="sc">$</span>site)</span>
-<span id="cb13-8"><a href="gm---siteraw-material.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="gm---siteraw-material.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb13-10"><a href="gm---siteraw-material.html#cb13-10" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="gm---siteraw-material.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gpa ----</span></span>
+<span id="cb14-2"><a href="gm---siteraw-material.html#cb14-2" aria-hidden="true" tabindex="-1"></a>Y.gpa <span class="ot">&lt;-</span> <span class="fu">gpagen</span>(shapesGM, <span class="at">print.progress =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-3"><a href="gm---siteraw-material.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="gm---siteraw-material.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># geomorph data frame ----</span></span>
+<span id="cb14-5"><a href="gm---siteraw-material.html#cb14-5" aria-hidden="true" tabindex="-1"></a>gdf <span class="ot">&lt;-</span> <span class="fu">geomorph.data.frame</span>(<span class="at">shape =</span> Y.gpa<span class="sc">$</span>coords, </span>
+<span id="cb14-6"><a href="gm---siteraw-material.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> Y.gpa<span class="sc">$</span>Csize,</span>
+<span id="cb14-7"><a href="gm---siteraw-material.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">site =</span> qdata<span class="sc">$</span>site)</span>
+<span id="cb14-8"><a href="gm---siteraw-material.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="gm---siteraw-material.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb14-10"><a href="gm---siteraw-material.html#cb14-10" aria-hidden="true" tabindex="-1"></a>qdata<span class="sc">$</span>csz <span class="ot">&lt;-</span> Y.gpa<span class="sc">$</span>Csize</span></code></pre></div>
 </div>
 <div id="principal-components-analysis" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Principal Components Analysis<a href="gm---siteraw-material.html#principal-components-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Principal components analysis <span class="citation">(<a href="#ref-RN1746" role="doc-biblioref">Jolliffe 2002</a>)</span> was used to visualise shape variation among the Perdiz arrow points. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh <span class="citation">(<a href="#ref-RN1731" role="doc-biblioref">Klingenberg 2013</a>; <a href="#ref-RN479" role="doc-biblioref">Sherratt et al. 2014</a>)</span>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="gm---siteraw-material.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis ----</span></span>
-<span id="cb14-2"><a href="gm---siteraw-material.html#cb14-2" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">&lt;-</span><span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
-<span id="cb14-3"><a href="gm---siteraw-material.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="gm---siteraw-material.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># principal components analysis ----</span></span>
+<span id="cb15-2"><a href="gm---siteraw-material.html#cb15-2" aria-hidden="true" tabindex="-1"></a>pca<span class="ot">&lt;-</span><span class="fu">gm.prcomp</span>(Y.gpa<span class="sc">$</span>coords)</span>
+<span id="cb15-3"><a href="gm---siteraw-material.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering by OLS mean
@@ -277,33 +277,33 @@ div.csl-indent {
 ## Eigenvalues            3.295036e-08 2.757619e-08 1.405724e-08 1.120398e-08 7.314638e-09
 ## Proportion of Variance 3.466534e-06 2.901147e-06 1.478888e-06 1.178712e-06 7.695347e-07
 ## Cumulative Proportion  9.999937e-01 9.999966e-01 9.999981e-01 9.999992e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="gm---siteraw-material.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
-<span id="cb16-2"><a href="gm---siteraw-material.html#cb16-2" aria-hidden="true" tabindex="-1"></a>pch.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>site)]</span>
-<span id="cb16-3"><a href="gm---siteraw-material.html#cb16-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>site)]</span>
-<span id="cb16-4"><a href="gm---siteraw-material.html#cb16-4" aria-hidden="true" tabindex="-1"></a>col.hull <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>, <span class="st">&quot;#798E87&quot;</span>)</span>
-<span id="cb16-5"><a href="gm---siteraw-material.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="gm---siteraw-material.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pca by merged</span></span>
-<span id="cb16-7"><a href="gm---siteraw-material.html#cb16-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, </span>
-<span id="cb16-8"><a href="gm---siteraw-material.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb16-9"><a href="gm---siteraw-material.html#cb16-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>
-<span id="cb16-10"><a href="gm---siteraw-material.html#cb16-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps)</span>
-<span id="cb16-11"><a href="gm---siteraw-material.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot, </span>
-<span id="cb16-12"><a href="gm---siteraw-material.html#cb16-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> qdata<span class="sc">$</span>site,</span>
-<span id="cb16-13"><a href="gm---siteraw-material.html#cb16-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="gm---siteraw-material.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
+<span id="cb17-2"><a href="gm---siteraw-material.html#cb17-2" aria-hidden="true" tabindex="-1"></a>pch.gps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>site)]</span>
+<span id="cb17-3"><a href="gm---siteraw-material.html#cb17-3" aria-hidden="true" tabindex="-1"></a>col.gps <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(qdata<span class="sc">$</span>site)]</span>
+<span id="cb17-4"><a href="gm---siteraw-material.html#cb17-4" aria-hidden="true" tabindex="-1"></a>col.hull <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#C27D38&quot;</span>, <span class="st">&quot;#798E87&quot;</span>)</span>
+<span id="cb17-5"><a href="gm---siteraw-material.html#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="gm---siteraw-material.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pca by merged</span></span>
+<span id="cb17-7"><a href="gm---siteraw-material.html#cb17-7" aria-hidden="true" tabindex="-1"></a>pc.plot <span class="ot">&lt;-</span> <span class="fu">plot</span>(pca, </span>
+<span id="cb17-8"><a href="gm---siteraw-material.html#cb17-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb17-9"><a href="gm---siteraw-material.html#cb17-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch =</span> pch.gps,</span>
+<span id="cb17-10"><a href="gm---siteraw-material.html#cb17-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> col.gps)</span>
+<span id="cb17-11"><a href="gm---siteraw-material.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shapeHulls</span>(pc.plot, </span>
+<span id="cb17-12"><a href="gm---siteraw-material.html#cb17-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> qdata<span class="sc">$</span>site,</span>
+<span id="cb17-13"><a href="gm---siteraw-material.html#cb17-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">group.cols =</span> col.hull)</span></code></pre></div>
 <p><img src="supp_files/figure-html/pca.plotsiteraw-1.png" width="100%" /></p>
 </div>
 <div id="procrustes-anova" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Procrustes ANOVA<a href="gm---siteraw-material.html#procrustes-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To assess whether shape and size differ by <code>size class</code>, Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1749" role="doc-biblioref">Goodall 1991</a>)</span> were run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions <span class="citation">(<a href="#ref-RN1756" role="doc-biblioref">M. L. Collyer, Sekora, and Adams 2015</a>)</span>. A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs <span class="citation">(<a href="#ref-RN1655" role="doc-biblioref">Adams and Collyer 2015</a>; <a href="#ref-RN11775" role="doc-biblioref">M. L. Collyer and Adams 2018</a>)</span>, which has higher statistical power and a greater ability to identify patterns in the data should they be present <span class="citation">(<a href="#ref-RN1719" role="doc-biblioref">Anderson and Ter Braak 2003</a>)</span>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="gm---siteraw-material.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA ----</span></span>
-<span id="cb17-2"><a href="gm---siteraw-material.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shape</span></span>
-<span id="cb17-3"><a href="gm---siteraw-material.html#cb17-3" aria-hidden="true" tabindex="-1"></a>fit.sh <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> site,</span>
-<span id="cb17-4"><a href="gm---siteraw-material.html#cb17-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
-<span id="cb17-5"><a href="gm---siteraw-material.html#cb17-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb17-6"><a href="gm---siteraw-material.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb17-7"><a href="gm---siteraw-material.html#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="gm---siteraw-material.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of site/raw material?</span></span>
-<span id="cb17-9"><a href="gm---siteraw-material.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sh)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="gm---siteraw-material.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA ----</span></span>
+<span id="cb18-2"><a href="gm---siteraw-material.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shape</span></span>
+<span id="cb18-3"><a href="gm---siteraw-material.html#cb18-3" aria-hidden="true" tabindex="-1"></a>fit.sh <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(shape <span class="sc">~</span> site,</span>
+<span id="cb18-4"><a href="gm---siteraw-material.html#cb18-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
+<span id="cb18-5"><a href="gm---siteraw-material.html#cb18-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-6"><a href="gm---siteraw-material.html#cb18-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb18-7"><a href="gm---siteraw-material.html#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="gm---siteraw-material.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># shape as a function of site/raw material?</span></span>
+<span id="cb18-9"><a href="gm---siteraw-material.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sh)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -318,14 +318,14 @@ div.csl-indent {
 ## Total     29 0.275653                                         
 ## 
 ## Call: procD.lm(f1 = shape ~ site, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="gm---siteraw-material.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size</span></span>
-<span id="cb19-2"><a href="gm---siteraw-material.html#cb19-2" aria-hidden="true" tabindex="-1"></a>fit.sz <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> site,</span>
-<span id="cb19-3"><a href="gm---siteraw-material.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
-<span id="cb19-4"><a href="gm---siteraw-material.html#cb19-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb19-5"><a href="gm---siteraw-material.html#cb19-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb19-6"><a href="gm---siteraw-material.html#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="gm---siteraw-material.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of site/raw material?</span></span>
-<span id="cb19-8"><a href="gm---siteraw-material.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sz)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="gm---siteraw-material.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size</span></span>
+<span id="cb20-2"><a href="gm---siteraw-material.html#cb20-2" aria-hidden="true" tabindex="-1"></a>fit.sz <span class="ot">&lt;-</span> <span class="fu">procD.lm</span>(size <span class="sc">~</span> site,</span>
+<span id="cb20-3"><a href="gm---siteraw-material.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> gdf,</span>
+<span id="cb20-4"><a href="gm---siteraw-material.html#cb20-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">print.progress =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb20-5"><a href="gm---siteraw-material.html#cb20-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb20-6"><a href="gm---siteraw-material.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="gm---siteraw-material.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size as a function of site/raw material?</span></span>
+<span id="cb20-8"><a href="gm---siteraw-material.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit.sz)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -346,14 +346,14 @@ div.csl-indent {
 <div id="morphological-disparity" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Morphological Disparity<a href="gm---siteraw-material.html#morphological-disparity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The trajectory analysis was followed by an analysis of morphological disparity <span class="citation">(<a href="#ref-RN11107" role="doc-biblioref">M. L. Collyer and Adams 2020</a>; <a href="#ref-RN7041" role="doc-biblioref">Foote 1993</a>; <a href="#ref-RN5694" role="doc-biblioref">Zelditch et al. 2004</a>)</span> to identify potential differences in morphological diversity between size classes.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="gm---siteraw-material.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity ----</span></span>
-<span id="cb21-2"><a href="gm---siteraw-material.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater shape variation among </span></span>
-<span id="cb21-3"><a href="gm---siteraw-material.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb21-4"><a href="gm---siteraw-material.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(shape <span class="sc">~</span> site,</span>
-<span id="cb21-5"><a href="gm---siteraw-material.html#cb21-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
-<span id="cb21-6"><a href="gm---siteraw-material.html#cb21-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb21-7"><a href="gm---siteraw-material.html#cb21-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-8"><a href="gm---siteraw-material.html#cb21-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="gm---siteraw-material.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># morphological disparity ----</span></span>
+<span id="cb22-2"><a href="gm---siteraw-material.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater shape variation among </span></span>
+<span id="cb22-3"><a href="gm---siteraw-material.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb22-4"><a href="gm---siteraw-material.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(shape <span class="sc">~</span> site,</span>
+<span id="cb22-5"><a href="gm---siteraw-material.html#cb22-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
+<span id="cb22-6"><a href="gm---siteraw-material.html#cb22-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb22-7"><a href="gm---siteraw-material.html#cb22-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb22-8"><a href="gm---siteraw-material.html#cb22-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = shape ~ site, groups = qdata$site, iter = 9999,      data = gdf, print.progress = FALSE) 
@@ -378,13 +378,13 @@ div.csl-indent {
 ##          AN13 Millsap
 ## AN13    1.000   0.115
 ## Millsap 0.115   1.000</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="gm---siteraw-material.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater size variation among </span></span>
-<span id="cb23-2"><a href="gm---siteraw-material.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
-<span id="cb23-3"><a href="gm---siteraw-material.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(size <span class="sc">~</span> site,</span>
-<span id="cb23-4"><a href="gm---siteraw-material.html#cb23-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
-<span id="cb23-5"><a href="gm---siteraw-material.html#cb23-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
-<span id="cb23-6"><a href="gm---siteraw-material.html#cb23-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb23-7"><a href="gm---siteraw-material.html#cb23-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="gm---siteraw-material.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do any of the groups display greater size variation among </span></span>
+<span id="cb24-2"><a href="gm---siteraw-material.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># individuals relative to the other group?</span></span>
+<span id="cb24-3"><a href="gm---siteraw-material.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">morphol.disparity</span>(size <span class="sc">~</span> site,</span>
+<span id="cb24-4"><a href="gm---siteraw-material.html#cb24-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">groups =</span> qdata<span class="sc">$</span>site, </span>
+<span id="cb24-5"><a href="gm---siteraw-material.html#cb24-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> gdf, </span>
+<span id="cb24-6"><a href="gm---siteraw-material.html#cb24-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">print.progress =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb24-7"><a href="gm---siteraw-material.html#cb24-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = size ~ site, groups = qdata$site, iter = 9999,      data = gdf, print.progress = FALSE) 

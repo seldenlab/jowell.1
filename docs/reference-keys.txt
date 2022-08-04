@@ -1,4 +1,5 @@
-fig:figjowellmap
+fig:figmap
+fig:figlm
 fig:figjowellpca
 fig:figjowellmshape
 primary-findings
