@@ -1,31 +1,31 @@
-spec,site
-56,AN13
-63,AN13
-66,AN13
-70,AN13
-72,AN13
-74,AN13
-75,AN13
-76,AN13
-78,AN13
-79,AN13
-80,AN13
-millsap1,Millsap
-millsap2,Millsap
-millsap3,Millsap
-millsap4,Millsap
-millsap5,Millsap
-millsap6,Millsap
-millsap7,Millsap
-millsap8,Millsap
-millsap9,Millsap
-millsap10,Millsap
-millsap11,Millsap
-millsap12,Millsap
-millsap13,Millsap
-millsap14,Millsap
-millsap15,Millsap
-millsap16,Millsap
-millsap17,Millsap
-millsap18,Millsap
-millsap19,Millsap
+spec,site,maxl
+56,Jowell Farm,12.53
+63,Jowell Farm,12.765
+66,Jowell Farm,12.601
+70,Jowell Farm,13.813
+72,Jowell Farm,12.732
+74,Jowell Farm,12.736
+75,Jowell Farm,11.682
+76,Jowell Farm,11.05
+78,Jowell Farm,10.166
+79,Jowell Farm,10.075
+80,Jowell Farm,10.631
+millsap1,Millsap Cache,27.984
+millsap2,Millsap Cache,25.094
+millsap3,Millsap Cache,22.911
+millsap4,Millsap Cache,23.828
+millsap5,Millsap Cache,22.628
+millsap6,Millsap Cache,21.857
+millsap7,Millsap Cache,19.854
+millsap8,Millsap Cache,19.808
+millsap9,Millsap Cache,19.881
+millsap10,Millsap Cache,19.753
+millsap11,Millsap Cache,19.578
+millsap12,Millsap Cache,17.792
+millsap13,Millsap Cache,17.99
+millsap14,Millsap Cache,17.268
+millsap15,Millsap Cache,19.174
+millsap16,Millsap Cache,17.036
+millsap17,Millsap Cache,18.189
+millsap18,Millsap Cache,19.136
+millsap19,Millsap Cache,17.845

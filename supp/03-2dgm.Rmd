@@ -15,10 +15,6 @@ library(tidyverse)
 library(wesanderson)
 library(ggplot2)
 
-# read data and define number of sLMs ----
-shapes <- readShapes("shapes")
-shapesGM <- readland.shapes(shapes, nCurvePts = c(15, 30, 45))
-
 # read qualitative data
 qdata <- read.csv("qdata.merged.csv", 
                   header = TRUE, 
@@ -103,35 +99,9 @@ summary(pw.sz,
         test.type = "dist")
 ```
 
-## Trajectory analysis
-
-A phenotypic trajectory analysis [@RN8344;@RN8550;@RN8569;@RN8533;@RN8446] was used to assess whether reduction/retouch trajectories differ between the sites. 
-
-```{r shapetrajectory, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# trajectory analysis::shape
-TA <- trajectory.analysis(fit.sh,
-                          groups = qdata$site, 
-                          traj.pts = qdata$size,
-                          print.progress = FALSE)
-
-# magnitude difference
-summary(TA, 
-        attribute = "MD")
-
-# plot
-TP <- plot(TA,
-           pch = as.numeric(qdata$site), 
-           bg = as.numeric(qdata$size),
-           cex = 0.3,
-           col = "gray")
-add.trajectories(TP, 
-                 traj.pch = c(15, 17),
-                 traj.cex = 0.5)
-```
-
 ## Morphological Disparity
 
-The trajectory analysis was followed by an analysis of morphological disparity [@RN11107;@RN7041;@RN5694] to identify potential differences in morphological diversity between size classes.
+An analysis of morphological disparity was used [@RN11107;@RN7041;@RN5694] to identify potential differences in morphological diversity between the size classes.
 
 ```{r mdisp, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # morphological disparity ----
